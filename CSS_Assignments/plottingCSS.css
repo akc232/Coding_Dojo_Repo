@@ -4,47 +4,58 @@
  padding: 20px;
 }
 #wrapper{
+ display: inline-block;
+
  width: 950px;
- background-color: silver;
  margin: 0px auto;
  padding: 20px;
- display: inline-block;
+
+ background-color: silver;
 }
 
 #header{
  height: 150px;
+
  background-color: green;
 }
 #main_content, .subcontents, #advertisement{
   display: inline-block;
 }
 #navigation{
- height: 250px;
- width: 150px;
- background-color: blue;
  position: absolute;
+
  display: inline-block;
+
+ width: 150px;
+ height: 250px;
  margin-top: 20px;
+
+ background-color: blue;
 }
 #main_content{
- height: 350px;
+ position: relative;
+
+ float: right;
+
  width: 720px;
- background-color: red;
- padding: 10px;
+ height: 350px;
  margin-top: 20px;
  margin-left: 10px;
- float: right;
- position: relative;
+ padding: 10px;
+
+ background-color: red;
 }
 .subcontents{
- height: 150px;
  width: 150px;
+ height: 150px;
  margin: 5px;
+
  background-color: yellow;
 }
 #advertisement{
- height: 70px;
  width: 570px;
+ height: 70px;
  margin-top: 20px;
+
  background-color: purple;
 }
