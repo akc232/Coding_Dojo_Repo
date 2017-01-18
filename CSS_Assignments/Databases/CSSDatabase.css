@@ -1,0 +1,133 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  border: 1px dotted green;
+}
+
+.container{
+  width: 960px;
+  margin: 0 auto;
+  padding:10px;
+}
+
+.header img{
+  width: 230px;
+  height: 150px;
+
+}
+  .header p{
+  width: 400px;
+  margin-top: 100px;
+  margin-left: 300px;
+  vertical-align: top;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 800;
+  background: rgb(253, 253, 253);
+}
+.nav{
+  display: inline-block;
+  width: 960px;
+  background: rgb(241, 243, 240);
+  }
+    .nav li{
+      display: inline-block;
+      vertical-align: top;
+    }
+      .nav li a{
+        width: 110px;
+        height: 30px;
+        display: block;
+        text-align: center;
+        padding: 5px;
+        border:.5px solid black;
+      }
+.body_container{
+  width:960px;
+
+  background: rgb(99, 86, 107);
+}
+.main-top-img{
+  width: 470px;
+  margin: 20px;
+  display: inline-block;
+  vertical-align: top;
+
+}
+.main-top-img img{
+  width: 450px;
+  height: 240px;
+  display: inline-block;
+  vertical-align: top;
+
+}
+.main-top{
+  width:430px;
+  display: inline-block;
+  position: absolute;
+  margin: 20px 20px 20px 0px;
+}
+  .main-top h2, p{
+    padding: 5px;
+    background: rgb(240, 247, 250);
+  }
+  .main-top h2{
+    background: rgb(140, 138, 150);
+  }
+.stack img{
+  width:15px;
+  height:15px;
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 750px;
+}
+  .stack p{
+    width:160px;
+    height: 15px;
+    display: inline-block;
+    margin-bottom: 10px;
+    background: rgb(99, 86, 107);
+    font-size: 12px;
+    color: rgb(90, 107, 143);
+    font-weight: 800;
+  }
+#main-bottom{
+  width: 970px;
+  display: inline-block;
+
+}
+.storage, .searching, .interaction, .companies {
+  width: 210px;
+  height: 600px;
+  display: inline-block;
+  vertical-align: top;
+  }
+  .storage{
+
+    margin-left: 20px;
+  }
+  .searching{
+    margin-left: 20px;
+  }
+  .interaction{
+    margin-left: 20px;
+  }
+  .companies{
+    margin-left: 20px;
+  }
+    #main-bottom p{
+      height: 380px;
+    }
+    a.button {
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+
+        text-decoration: none;
+        color: initial;
+        margin-left: 90px;
+    }
+    h2{
+      background: rgb(240, 247, 250);
+    }
