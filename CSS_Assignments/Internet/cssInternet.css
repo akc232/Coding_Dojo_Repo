@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+
   font-family: sans-serif;
 
   /*border: 1px dotted green;*/
@@ -9,6 +10,7 @@
 #container{
 width: 970px;
 padding: 10px;
+
 }
   .header img{
   width: 100px;
@@ -17,37 +19,51 @@ padding: 10px;
   }
   .header h1{
   display: inline-block;
-  vertical-align: top;
+
   margin-top: 20px;
   margin-bottom:-27px;
   margin-left: -10px;
+  padding: 5px;
+
+  vertical-align: top;
+
   font-size: 250%;
   font-weight: 400;
-  padding: 5px;
   }
   .header h2{
-    font-size: 200%;
-    font-weight: 300;
-    background: #2e6b9e;
     width: inherit;
-    color: white;
     padding: 10px;
     padding-left: 30px;
+
+    color: white;
+    background: #2e6b9e;
+
+    font-size: 200%;
+    font-weight: 300;
   }
 
 #side_top{
   display: inline-block;
-  vertical-align: top;
 
-  padding: 10px;
   width: 290px;
   height: 320px;
+  padding: 10px;
 
-  background: #f6f6f6;
+  vertical-align: top;
+
+  border-width: thin;
+  border-color: #bababa
+  background #f6f6f6; /* For browsers that do not support gradients */
+  border-bottom-style: solid;
+  background: -webkit-linear-gradient(lightgrey, white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(lightgrey, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(lightgrey, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(lightgrey, white); /* Standard syntax */
 }
 
   #side_top h2{
     display: inline-block;
+
     width: 280px;
   }
   #side_top h3{
@@ -55,18 +71,21 @@ padding: 10px;
   }
   #side_top form{
     display: inline-block;
+
     width: 200px;
-    margin-left: 10px;
     margin-top: 40px;
+    margin-left: 10px;
   }
   .button1, .button2, .button3{
-    margin: 5px;
     width: 220px;
-    font-size: 19px;
+    margin: 5px;
     padding: 10px;
-    border-radius: 10px;
+
     color: white;
+    border-radius: 10px;
     box-shadow: #26282b 2px 2px;
+
+    font-size: 19px;
   }
   .button1{
     background: #4580ae;
@@ -77,6 +96,7 @@ padding: 10px;
 #side_bottom{
   width: 290px;
   height: 350px;
+
   background-image: url(ad_background.png);
 
 }
@@ -88,29 +108,43 @@ padding: 10px;
   }
   #side_bottom p{
     width:230px;
-    font-size: 24px;
-    text-align: center;
-    margin-left: 20px;
     margin-top: 20px;
+    margin-left: 20px;
+
+    text-align: center;
+
     color: white;
+
+    font-size: 24px;
   }
   .button3{
     margin-top: 30px;
     margin-left: 30px;
+
     color: white;
     background: #34c6dd
   }
 #main{
-  display: inline-block;
   position: relative;
-  width: 630px;
+  bottom: 722px;
   left: 300px;
-  bottom: 705px;
+
+  display: inline-block;
+
+  width: 660px;
   margin: 10px;
 }
 .main_head{
   height: 80px;
-  border border-bottom: : 1px solid black;
+
+  border-width: thin;
+  border-color: #bababa
+  border-bottom-style: solid;
+  background: #f6f6f6; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(lightgrey, white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(lightgrey, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(lightgrey, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(lightgrey, white); /* Standard syntax */
 }
 .body_top h3{
   font-size: 24px;
@@ -121,17 +155,34 @@ padding: 10px;
 .body_mid ol li{
   margin-left: 30px;
 }
+.body_last{
+  position: relative;
+  top: 30px;
+
+  width: 640px;
+
+  border-width: medium;
+  border-color: #0087dd
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: none;
+  border-left-style: solid;
+}
 .body_last h4{
-width: 400px;
-left:123px;
-bottom: 125px;
 position:relative;
+bottom: 80px;
+left:95px;
+
+width: 400px;
+
+font-size: 20px;
 }
 .last{
-  width: 600px;
-  left:123px;
-  bottom: 125px;
   position:relative;
+  bottom: 80px;
+  left:90px;
+
+  width: 545px;
   padding: 10px;
 }
 .home{
@@ -143,38 +194,42 @@ position:relative;
 
 }
 .phone{
+  position: absolute;
+  left:380px;
+
   width:50px;
   height:50px;
-  position: absolute;
-  left:350px;
 }
 .date, .number, .international{
-display: inline-block;
 position: relative;
 bottom: 25px;
-margin-top: -200px;
-margin-left:400px;
+
+display: inline-block;
+
+margin-top: -170px;
+margin-left:440px;
+
 text-align: center;
 }
 .number{
-font-size: 20px;
 color: #1ec5de
+
+font-size: 20px;
 
 }
 .international{
   margin-bottom: 120px;
 
 }
-
-
 .server{
   width: 300px;
-  height: 140px;
+  height: 150px;
+  margin-top: 10px;
   margin-left: 160px;
 }
 .html{
-  width: 120px;
-  height:120px;
+  width: 90px;
+  height:90px;
 }
 
 .blue{
