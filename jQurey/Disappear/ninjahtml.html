@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Disapearring Picture!</title>
+        <link rel="stylesheet" href="ninjaCSS.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('img').click(function(){
+                $(this).hide();
+            })
+
+            $('.restore').click(function(){
+                $('img').show(function(){
+                })
+            })
+        })
+        </script>
+    </head>
+    <body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Look at me!</h1>
+        </div>
+        <div class="pic">
+            <img class="image" src="disappearing-ninjas.png" alt="ninja">
+            <img class="image" src="python (2).png" alt="ninja">
+            <img class="image" src="disappearing-ninjas.png" alt="ninja">
+            <img class="image" src="python (2).png" alt="ninja">
+        </div>
+        <div class="pic">
+            <img class="image" src="disappearing-ninjas.png" alt="ninja">
+            <img class="image" src="python (2).png" alt="ninja">
+            <img class="image" src="disappearing-ninjas.png" alt="ninja">
+            <img class="image" src="python (2).png" alt="ninja">
+        </div>
+        <div class="button">
+            <button class="restore" type="button" name="button">Restore me!</button>
+        </div>
+    </div>
+
+
+    </body>
+</html>

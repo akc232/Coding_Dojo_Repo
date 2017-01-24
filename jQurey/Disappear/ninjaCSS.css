@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 1px dotted green;
+}
+
+.container{
+    width: 100%;
+    background: blue;
+}
+.header{
+    width: 100%;
+    background: white;
+}
+    .title{
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        margin-left: 50%;
+
+    }
+.pic{
+    width: 100%;
+    margin-left: 20%;
+}
+.image{
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    padding: 20px;
+    margin: 5px;
+    border: 3px solid black;
+}
+
+.button, .restore{
+    display: inline-block;
+    vertical-align: top;
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-left: 35%;
+
+
+
+}
