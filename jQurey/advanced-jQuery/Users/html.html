@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Users assignment jquery</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+$('#firstname').keyup(function() {
+     first = $(this).val();
+})
+$('#lastname').keyup(function() {
+    last = $(this).val();
+ })
+$('#email').keyup(function() {
+      email = $(this).val();
+ })
+$('#contact').keyup(function() {
+     contact = $(this).val();
+    })
+
+$('button').click(function(){
+    $('table').append("<tr><td>"+first+"</td><td>"+last+"</td><td>"+email+"</td><td>"+contact+"</td></tr>");
+})
+})
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <table class="border">
+                <tr>
+                    <th>First Name:</th>
+                    <th>Last Name:</th>
+                    <th>Email Address:</th>
+                    <th>Contact#:</th>
+                </tr>
+            </table>
+        </div>
+        <div class="form-body">
+           <h1 class="user">Add User</h1>
+            <form  id="form"action="process.php" method="post">
+               <div>
+                <label for="First_name" class="input">First Name:</label>
+                <input id=firstname class="input1" type="text" name="first-name" value="First_Name">
+                </div>
+                <div>
+                <label class="input" for="Last_name">Last Name:</label>
+                <input id="lastname"class="input1" type="text" name="last-name" value="Last_Name">
+                </div>
+                <div>
+                <label class="input" for="Email Address">Email Address:</label>
+                <input id="email" class="input1" type="text" name="email" value="Email_Address">
+                </div>
+                <div>
+                <label class="input" for="Contact">Contact#:</label>
+                <input id="contact"class="input1" type="text" name="contact" value="Contact">
+                </div>
+                <button type="button" name="button" class="button">Add User</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
