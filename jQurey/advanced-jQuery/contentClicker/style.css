@@ -1,0 +1,36 @@
+*{
+   /*border: 1px dotted green;*/
+}
+#container{
+   display: inline-block;
+   width: 1000px;
+}
+#form{
+   width: 400px;
+   display: inline-block;
+   padding-top: 50px;
+   border: 2px solid black;
+}
+   #first, #last, #content, #button{
+      margin-bottom: 30px;
+      padding-left: 20px;
+      text-align: left;
+      font-size: 20px;
+   }
+.content{
+   width: 250px;
+   height: 150px;
+   vertical-align: top;
+   display: block;
+   word-wrap: break-word;
+}
+#users{
+   display: inline-block;
+   width: 500px;
+   vertical-align: top;
+
+}
+p{
+   width: 100px;
+   display: inline-block;
+}
