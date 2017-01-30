@@ -1,0 +1,26 @@
+*{
+   margin: 0px;
+   padding: 0px;
+   border: 1px dotted green;
+}
+
+#container{
+   width: 1000px;
+   display: inline-block;
+}
+   #header{
+      width: 1000px;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      border: 2px solid black;
+   }
+   input{
+      width: 150px;
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+   }
+   .city{
+      width: 250px;
+   }
