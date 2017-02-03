@@ -15,16 +15,19 @@
              return color;
           }
           $(document).ready(function(){
-             $('#large_box').click(function(){
-                $('this').chil.css('background-color', 'red');
-         //comment this out when you have figured out what event.stopPropagation is used for
+             $('#large_box').click(function(){   //this changes the childrens of the large box
+                $('this').css('background-color', random_color);
+                  // alert("you clicked the big one.")
+                  $(this).children().css('background-color', random_color)
              })
-             $('.side_box').click(function(event){
+             $('.side_box').click(function(event){/// this changes the boxes siblings
+                $(this).sibling().css('background-color', random_color);
 
                 event.stopPropagation();
              })
-             $('.middle_box').click(function(event){
+             $('.middle_box').click(function(event){ // this changes the large box
                 event.stopPropagation();
+                $(this).parent().css('background-color', random_color);
              })
              console.log("hello");
           });
