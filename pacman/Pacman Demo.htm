@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:4000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+      <title>Pacman Demo</title>
+      <style type="text/css">
+         body{
+            background-color: black;
+         }
+         div.row div{
+            width: 20px;
+            height:20px;
+            border: 1px solid black;
+            display: inline-block;
+         }
+         div.brick{
+            background-color: blue;
+         }
+         div.coin{
+            background: url('coin.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+         }
+         div.empty{
+
+         }
+         div#pacman{
+            background: url('pacman.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+         }
+
+      </style>
+   </head>
+   <body>
+      <div id="world">
+<div class="row">
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+</div>
+<div class="row">
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+</div>
+<div class="row">
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+</div>
+<div class="row">
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+</div>
+<div class="row">
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+</div>
+<div class="row">
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+</div>
+<div class="row">
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+</div>
+<div class="row">
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="coin"></div>
+	<div class="brick"></div> 
+</div>
+<div class="row">
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+	<div class="brick"></div> 
+</div></div>
+      <div id="pacman" style="top: 35px; left:40px"></div>
+
+      <!-- List of features to build
+      1) Have JS display the world of brick/coin/ect
+      2) Have pacman move up and down -->
+      <script>
+      var world = [
+         [8,8,8,8,8,8,8,8,8,8],
+         [8,4,4,8,4,8,4,4,4,8],
+         [8,4,4,8,4,8,4,4,4,8],
+         [8,4,4,8,4,4,4,4,4,8],
+         [8,4,4,4,4,4,4,4,4,8],
+         [8,8,8,8,4,4,4,4,4,8],
+         [8,4,4,4,4,4,8,8,8,8],
+         [8,4,4,8,4,4,4,4,4,8],
+         [8,8,8,8,8,8,8,8,8,8],
+      ];
+      function displayWorld(){
+         var output = '';
+
+         for( var i=0; i<world.length; i++){
+            output += "\n<div class='row'>";
+            for(var p=0; p<world[i].length; p++){
+               if(world[i][p] == 8)
+                  output += "\n\t<div class= 'brick'></div> ";
+               else if(world[i][p]== 4)
+                  output += "\n\t<div class='coin'></div>";
+               if(world[i][p] == 0)
+                  output+= "\n\t<div class='empty'></div>";
+            }
+            output += "\n</div>";
+         }
+         // console.log(output);
+         document.getElementById('world').innerHTML = output;
+      }
+      displayWorld();
+      </script>
+
+   <script>
+	// Code injected by live-server
+	(function() {
+		function refreshCSS() {
+			var sheets = [].slice.call(document.getElementsByTagName("link"));
+			var head = document.getElementsByTagName("head")[0];
+			for (var i = 0; i < sheets.length; ++i) {
+				var elem = sheets[i];
+				head.removeChild(elem);
+				var rel = elem.rel;
+				if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+					var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+					elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+				}
+				head.appendChild(elem);
+			}
+		}
+		var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+		var address = protocol + window.location.host + window.location.pathname + '/ws';
+		var socket = new WebSocket(address);
+		socket.onmessage = function(msg) {
+			if (msg.data == 'reload') window.location.reload()
+			else if (msg.data == 'refreshcss') refreshCSS();
+		};
+		console.log('Live reload enabled.');
+	})();
+</script>
+
+
+</body></html>
