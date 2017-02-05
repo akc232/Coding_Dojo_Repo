@@ -1,0 +1,21 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+#container{
+   width: 500px;
+   padding: 20px;
+}
+   .suit img{
+      width: 200px;
+      height: 100px;
+      position: absolute;
+      padding: 20px
+   }
+   .ninja img{
+      width: 200px;
+      height: 100px;
+      position: relative;
+      bottom: 5px;
+      padding: 20px;
+   }
