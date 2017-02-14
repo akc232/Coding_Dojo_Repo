@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Counter</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div id="container">
+        <div class="form">
+            <div id='title'>
+                <h1>Counter</h1>
+            </div>
+            <div class="count">
+               Times:
+               <p>{{session['counter']}}</p>
+            </div>
+            <div class='button'>
+                <form action="/ninja" method="post">
+                    <input type="submit" name="submit" value="Ninja">
+                </form>
+            </div>
+            <div class="button">
+                <form class="" action="/hacker" method="post">
+                    <input type="submit" name="reset" value="Hacker">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
