@@ -7,7 +7,7 @@ def school():
         score.append(random.randrange(55, 100,));
         # print score[i]
         if score[i]<=59:
-            grade= "Score:"' '+ str(score[i])+' '"Your Grade is.. F. F Fanntasss...Im kidding FAILURE";
+            grade= "Score:"' '+ str(score[i])+' '"Your Grade is.. F. F for Fanntasss...Im kidding FAILURE";
             print grade;
         if score[i] >=60 and score[i] <=69:
             grade= "Score:" ' '+ str(score[i])+ " ""Your Grade is a D. WOW... Way to study";

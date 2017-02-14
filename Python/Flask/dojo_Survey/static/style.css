@@ -1,0 +1,41 @@
+/**{
+   margin: 0;
+   padding: 0;
+   border: 1px dotted green;
+}*/
+.container{
+   width: 1000px;
+   /*display: inline-block;*/
+}
+.form{
+border: 1px solid black;
+margin-left: 100px;
+width: 500px;
+padding: 20px;
+display: block;
+   /*text-align: center;*/
+}
+label{
+   display: inline-block;
+}
+.name, .dropdown{
+   width: 300px;
+   display: block;
+}
+.input{
+   display: inline-block;
+}
+.comment{
+   display: block;
+   margin-bottom: 50px;
+}
+.button{
+   width: 50px;
+   height: 60px;
+   display: block;
+   text-align: right;
+   margin-top: 50px;
+}
+.text{
+   display: block;
+}

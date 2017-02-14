@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>NINJASSSS</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/greetings_style.css') }}">
+      <script type="text/javascript" src="{{url_for('static', filename='js/greetings_script.js')}}"></script>
+      <img src="{{url_for('static', filename='img/ninja.png')}}" alt="ninja">
+   </head>
+   <body>
+      <h2>{{ greetings }}</h2>
+      <p>{{ paragraph }}</p>
+      <p>COOOOOOL</p>
+   </body>
+</html>
