@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Email Validation</title>
+      <link rel="stylesheet" href="{{url_for('static', filename = "style.css")}}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="body">
+            <div class="flash">
+               {% with messages = get_flashed_messages(category_filter=['error']) %}
+               {% if messages %}
+               <ul class='error'>
+                  {% for message in messages %}
+                  <h3>{{message}}</h3>
+                  {% endfor %}
+               </ul>
+               {% endif %}
+               {% endwith %}
+            </div>
+            <div class="title">
+               <h1>Register Your Email For Awesomeness!!!</h1>
+            </div>
+            <div class="register">
+               <form class="form" action="/success" method="post">
+                  Email Address:<input type="text" name="email" value="">
+                  <input class="button" type="submit" name="submit" value="submit">
+               </form>
+
+            </div>
+         </div>
+      </div>
+
+   </body>
+</html>
