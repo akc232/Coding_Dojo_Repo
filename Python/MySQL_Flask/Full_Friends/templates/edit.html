@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Friends edit</title>
+      <link rel="stylesheet" href="{{url_for('static', filename = "style.css")}}">
+      <link rel="stylesheet" href="{{url_for('static', filename = "skeleton.css")}}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="body">
+            <form class="" action="/update" method="post">
+               <input type="hidden" name="id" value="{{friends.id}}">
+               <label for="">First Name:</label><input type="text" name="first_name" value="{{friends.first_name}}">
+               <label for="">Last Name:</label><input type="text" name="last_name" value="{{friends.last_name}}">
+               <label for="">Email:</label><input type="text" name="email" value="{{friends.email}}">
+               <input type="submit" name="update" value="Update">
+            </form>
+
+         </div>
+      </div>
+
+   </body>
+</html>

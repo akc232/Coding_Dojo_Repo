@@ -1,0 +1,42 @@
+/**{
+   border: 1px dotted green;
+}*/
+
+.container {
+    width: 990px;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+}
+
+.body {
+    display: block;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+table {
+    width: 970px;
+}
+
+th {
+    text-align: left;
+}
+
+.head, h6 {
+    display: inline;
+    width: 200px;
+    vertical-align: top;
+}
+
+.first, .last, .email, .edit {
+    display: inline-block;
+    width: 200px;
+}
+
+.form {
+    display: block;
+    margin-top: 50px;
+}
