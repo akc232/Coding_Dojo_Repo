@@ -1,0 +1,23 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+.container{
+   width: 1000px;
+   padding: 200px;
+}
+   .game{
+      width: 600px;
+      border: 2px solid black;
+   }
+      .instuctions{
+         width: 550px;
+         vertical-align: top;
+         display: block;
+      }
+      .red{
+         background: red;
+      }
+      .green{
+         background: green;
+      }

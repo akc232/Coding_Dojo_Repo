@@ -40,6 +40,7 @@
    color: green;*/
 }
 #log{
-   height: 200px;
+   height: 10px;
    overflow-y: scroll;
    border: 2px solid black;
+}

@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect, session, flash, Markup, url_for
 import re
+from mysqlconnection import MySQLConnector
 
 app= Flask(__name__)
 app.secret_key= 'notsecreTT'
+mysql = MySQLConnector(app, 'flaskSQLdb')
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 PASSWORD_REGEX= re.compile(r'\d.*[A-Z]|[A-Z].*\d')
@@ -10,6 +12,9 @@ BIRTHDAY_REGEX= re.compile(r'^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]|(?:Jan|Mar|May
 @app.route('/')
 
 def index():
+
+    query= ("SELECT * FROM users")
+    users = mysql.query_db(query)
     return render_template('index.html')
 
 @app.route('/user', methods=['POST'])

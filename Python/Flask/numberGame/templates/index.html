@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Number Game</title>
+      <link rel="stylesheet" href="{{url_for('static', filename='num_style.css')}}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="game">
+            <div class="title">
+               <h1>Welcome to the Great Number Game!</h1>
+            </div>
+            <div class="instructions">
+               <h2>I am thinking of a number1 to 100!</h2>
+               <h2>Take a guess!</h2>
+            </div>
+            {% with messages = get_flashed_messages(category_filter=['flash']) %}
+            {% if messages %}
+            <ul class='flash'>
+               {% for message in messages %}
+               {{message}}
+               {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            {% with messages = get_flashed_messages(category_filter=['low']) %}
+            {% if messages %}
+            <ul class='low'>
+               {% for message in messages %}
+               {{message}}
+               {% endfor %}
+            </ul>
+
+            {% endif %}
+            {% endwith %}
+            {% with messages = get_flashed_messages(category_filter=['correct']) %}
+            {% if messages %}
+            <ul class='correct'>
+               {% for message in messages %}
+               {{message}}
+               {% endfor %}
+            </ul>
+
+            {% endif %}
+            {% endwith %}
+
+               <form class="form" action="/number" method="post">
+                  <input type="text" name="guess" value="">
+                  <input type="submit" name="submit" value="Guess!">
+               </form>
+               <div class="reset">
+                  <form class="reset" action="/reset" method="post">
+                     <input type="submit" name="reset" value="Reset Game">
+                  </form>
+               </div>
+               <div class="times">
+                  <h4>Guess #:{{session['counter']}}</h4>
+               </div>
+         </div>
+
+      </div>
+
+   </body>
+</html>
