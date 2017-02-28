@@ -1,0 +1,57 @@
+/**{
+   margin: 0px;
+   padding: 0px;
+   border: 1px dotted green;
+}*/
+
+
+.container{
+   width: 980px;
+   padding: 20px;
+   border: 2px solid black;
+}
+   .body{
+      padding: 20px;
+   }
+   .title{
+      width: 940px;
+      vertical-align: top;
+      text-align: center;
+   }
+   main{
+      width: 940px;
+      display: inline-block;
+   }
+      .login_body{
+         width: 300px;
+         border: 2px solid black;
+         padding: 20px;
+         display: inline-block;
+      }
+      .new{
+         width: 300px;
+         border: 2px solid black;
+         padding: 20px;
+         display: inline-block;
+         vertical-align: top;
+         position: relative;
+         left: 225px;
+      }
+label{
+   font-size: 26px;
+}
+.flash{
+   color: red;
+}
+/*REGISTER PAGE-----*/
+
+.post_container{
+   width: 980px;
+   padding: 30px;
+   border: 2px solid black;
+}
+.post_body{
+   width: 300px;
+   padding: 20px;
+   display: inline-block;
+}

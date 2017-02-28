@@ -1,0 +1,41 @@
+<!-- <!DOCTYPE html>   PAGE NOT USED
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>{{title}}</title>
+      <link rel="stylesheet" href="{{url_for('static', filename = "css/style.css")}}">
+      <link rel="stylesheet" href="{{url_for('static', filename = "css/skeleton.css")}}">
+       <link rel="stylesheet" href="{{url_for('static', filename = "css/normalize.css")}}">
+   </head>
+   <body>
+      <div class="container">
+            <div class="title">
+               <h1>The Wall</h1>
+               <br>
+               <h3>Login</h3>
+               <hr>
+            </div>
+            <div class="body">
+               {% with messages = get_flashed_messages() %}
+                {% if messages  %}
+                   {% for message in messages %}
+                   {{message}}
+                   {% endfor %}
+                {% endif %}
+               {% endwith %}
+            <form class="login" action="/login_user" method="post">
+               <label>Email:</label><input type="text" name="email" value="">
+               <label>Password:</label><input type="password" name="password" value="">
+               <br>
+               {{session['user_id']}}
+               <br>
+               <input type="submit" name="submit" value="Login">
+            </form>
+            <a href="/register"> Dont have a login? Click here to Register!</a>
+            <br>
+            <br>
+            <a href="/"><button type="button" name="button">Back to Main Page</button></a>
+         </div>
+      </div>
+   </body>
+</html> -->

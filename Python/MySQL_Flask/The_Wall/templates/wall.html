@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>The Wall</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = "css/wallstyle.css")}}">
+     <!-- <link rel="stylesheet" href="{{url_for('static', filename = "css/skeleton.css")}}"> -->
+      <!-- <link rel="stylesheet" href="{{url_for('static', filename = "css/normalize.css")}}"> -->
+      <link rel="stylesheet" href="{{url_for('static', filename = "css/materialize.min.css")}}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <h5>The Wall</h5>
+            </div>
+            <div class="header_right">
+                <!-- <p class="hr">User: {{session['user_id']}}</p> -->
+                <p class="hr">Logged in as: {{session['first_name']}} {{session['last_name']}}</p>
+                <form class="hr" action="/logout" method="post">
+                    <input type="submit" name="" value="Logout">
+                </form>
+            </div>
+            <br>
+        </div>
+        <div class="flash">
+          {% with messages = get_flashed_messages() %}
+           {% if messages %}
+              {% for message in messages %}
+                 <ul>
+                    {{message}}
+                 </ul>
+              {% endfor %}
+           {% endif %}
+        {% endwith %}
+        </div>
+        <br><br>
+        <div class="body">
+            <p>Post a Message/Comment</p>
+            <form class="" action="/posts" method="post" name="message">
+                <textarea name="message" rows="10" cols="100"></textarea>
+                <br>
+                <input type="submit" name="post" value="Post">
+            </form>
+        </div>
+        <hr>
+        <div class="post">
+           <h3 class='post_title'>Post Things here!</h3>
+           <hr>
+            {% if posts %}
+               {% for posts in posts %}
+                  <h4>{{posts.first_name}} {{posts.last_name}} POSTED on {{posts.created_at}}</h4>
+                  <h5>{{posts.content}}</h5>
+                     <!-- <form class="" action="/success/{{posts.id}}/edit" method="post">
+                        <input type="hidden" name="edit" value="{{posts.id}}">
+                        <input type="submit" name="edit" value="Edit">
+                     </form> -->
+                     <form class="" action="/success/{{posts.id}}/delete" method="post">
+                        <input type="hidden" name="delete" value="{{posts.id}}">
+                        <input type="hidden" name="user" value="{{posts.users}}">
+                        <input type="submit" name="" value="Delete Post">
+                     </form>
+                     <hr>
+            {% if comments %}
+               {% for comments in comments %}
+                  {% if comments.post_id == posts.id %}
+                     <div class="comments">
+                        <h6>{{comments.first_name}} {{comments.last_name}} COMMENTED on {{comments.created_at}}</h6>
+                        <h7>{{comments.comment}}</h7>
+                        <form class="" action="/success/{{posts.id}}/comment_delete" method="post">
+                           <input type="hidden" name="comment" value="{{posts.id}}">
+                           <input type="submit" name="comment" value="Delete Comment">
+                        </form>
+                        <hr>
+                     </div>
+                  {% endif %}
+               {% endfor %}
+            {% endif %}
+            <form class="comment_text" action="/comment/{{posts.id}}" method="post" name="message">
+                <textarea name="comment" rows="4" cols="100"></textarea>
+                <br>
+                <input type="submit" name="post" value="Post Comment">
+            </form>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+
+</html>

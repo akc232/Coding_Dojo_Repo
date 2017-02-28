@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = "css/style.css")}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = "css/skeleton.css")}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = "css/normalize.css")}}">
+</head>
+
+<body>
+
+    <div class="post_container">
+        <div class="title">
+            <h2>The Wall</h2>
+            <h3>Register</h3>
+            <p>After registering click go to login page and login.</p>
+            <hr>
+        </div>
+        <div class="post_body">
+           <div class="flash">
+             {% with messages = get_flashed_messages() %}
+             {% if messages %}
+             {% for message in messages %}
+             <ul>
+                {{message}}
+             </ul>
+             {% endfor %}
+             {% endif %}
+             {% endwith %}
+          </div>
+            <form class="login" action="/register_user" method="post">
+                <h4>First Name:</h4><input type="text" name="first_name" value="">
+                <h4>Last Name:</h4><input type="text" name="last_name" value="">
+                <h4>Email:</h4><input type="text" name="email" value="">
+                <h4>Password:</h4><input type="password" name="password" value="">
+                <h4>Confirm Password:</h4><input type="password" name="confirm_password" value="">
+                <br>
+                <br>
+                <input type="submit" name="register" value="Register">
+            </form>
+            <br>
+            <br>
+            <a href="/"><button type="button" name="button">Go to Login</button></a>
+            <br>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+/**{
+   border: 1px dotted green;
+}*/
+
+.containter{
+   width: 980px;
+   padding: 50px;
+}
+.header{
+   margin-bottom: 50px;
+}
+.title{
+   width: 200px;
+   display: inline-block;
+}
+.header_right{
+   width: 400px;
+
+
+}
+.hr{
+   width: 200px;
+   display: inline-block;
+}
+
+.post{
+   border: 1px solid black;
+   padding: 40px;
+}
+.comments{
+
+   margin-left: 40px;
+}
+.comment_text{
+   margin-top: 30px;
+}
+.post_title{
+   background: grey;
+   text-align: center;
+}
+.flash{
+color: red;
+
+}
