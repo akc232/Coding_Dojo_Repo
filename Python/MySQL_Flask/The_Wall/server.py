@@ -167,12 +167,12 @@ def comments(post_id):
 #create delete function------------
 @app.route('/success/<id>/delete', methods = ['POST'])
 def delete(id):
-
-    query = "DELETE FROM posts WHERE id = :id"
-    data = {'id': id}
-    print "-------->", mysql.query_db(query, data)
-    print data
-    return redirect('/success')
+        query = "DELETE FROM posts WHERE id = :id"
+        data = {'id': id}
+        print "-------->", mysql.query_db(query, data)
+        print data
+        flash('Deleted Post!!')
+        return redirect('/success')
 
 #create delete comment function--------------
 @app.route('/success/<id>/comment_delete', methods = ['POST'])
@@ -181,34 +181,7 @@ def delete_comment(id):
     data = {'id': id}
     print "-------->", mysql.query_db(query, data)
     print data
+    flash ('Deleted Comment!!')
     return redirect('/success')
 
 app.run(debug = True)
-
-
-
-
-
-#---------Extra work where I was trying to get the user that is signed in currently to be able to edit ONLY his own posts------------still needs to be completed.--------------------------- IGNORE BELOW..
-
-# @app.route('/success/<id>/edit', methods = ['POST'])
-# def show_edit(id):
-#     query = "SELECT posts.id AS posts, posts.user_id AS user, users.id AS usermain, users.first_name, users.last_name, posts.updated_at, posts.content from users JOIN posts ON users.id = posts.user_id WHERE"
-#     data = {
-#     'id': id
-#     }
-#     edit = mysql.query_db(query, data)
-#     print edit
-#     return render_template('edit.html', edit = edit[0])
-#
-# @app.route('/update', methods = ['POST'])
-# def update():
-#     query = "UPDATE posts SET content = :content WHERE id = :id"
-#     data = {
-#     'content': request.form['edit'],
-#     'id': posts
-#     }
-#     mysql.query_db(query, data)
-#     return redirect('/success')
-#
-# app.run(debug = True)
