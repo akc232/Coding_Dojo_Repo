@@ -48,7 +48,7 @@ def create():
         errors.append('Last name can not contian numbers or special characters!')
         #lastname
     if not EMAIL_REGEX.match(email):
-        errors.append('Invalid Email Format!')
+        errors.append('Email or Password is Incorrect')
         #email
     if password != confirm:
         errors.append('Passwords do not match!')
@@ -79,9 +79,9 @@ def create():
         registered.append('Success! User is registered! Please log in.')
 
         if registered:
-            for register in registered:
-                flash(register)
-        return redirect('/register')
+            for message in messages:
+                flash(message)
+        return redirect('/')
 
 
 #login user---------------------------------------------
@@ -102,13 +102,13 @@ def user_login():
             session['email'] = user[0]['email']
             return redirect('/success')
         else:
-            errors.append('Password is incorrect')
+            errors.append('Email or Password is Incorrect')
             if errors:
                 for error in errors:
                     flash(error)
         return redirect('/')
     else:
-        errors.append('Invalid email')
+        errors.append('Email or Password Incorrect')
     if errors:
         for error in errors:
             flash(error)
@@ -128,7 +128,7 @@ def logout():
 @app.route('/success')
 def success():
     if 'user_id' not in session:
-        flash('Please Log In to post!')
+        flash('Please Login!!')
         return redirect('/')
     else:
         query = "SELECT posts.content, users.first_name, users.last_name, posts.created_at, posts.id FROM posts JOIN users on posts.user_id = users.id"

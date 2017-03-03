@@ -8,27 +8,28 @@
 .container{
    width: 980px;
    padding: 20px;
-   border: 2px solid black;
 }
-   .body{
+.img{
+   width: 100px;
+}
+.small{
+   width: 300px;
+}
+   /*.body{
       padding: 20px;
    }
    .title{
-      width: 940px;
-      vertical-align: top;
       text-align: center;
    }
    main{
       width: 940px;
       display: inline-block;
-   }
+   }*/
       .login_body{
-         width: 300px;
-         border: 2px solid black;
-         padding: 20px;
-         display: inline-block;
+         width: 90px;
+
       }
-      .new{
+      /*.new{
          width: 300px;
          border: 2px solid black;
          padding: 20px;
@@ -39,12 +40,12 @@
       }
 label{
    font-size: 26px;
-}
-.flash{
+}*/
+/*.flash{
    color: red;
-}
+}*/
 /*REGISTER PAGE-----*/
-
+/*
 .post_container{
    width: 980px;
    padding: 30px;
@@ -54,4 +55,4 @@ label{
    width: 300px;
    padding: 20px;
    display: inline-block;
-}
+}*/

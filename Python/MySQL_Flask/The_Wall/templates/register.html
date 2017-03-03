@@ -3,49 +3,70 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{title}}</title>
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = "css/materialize.css")}}">
     <link rel="stylesheet" href="{{url_for('static', filename = "css/style.css")}}">
-    <link rel="stylesheet" href="{{url_for('static', filename = "css/skeleton.css")}}">
-    <link rel="stylesheet" href="{{url_for('static', filename = "css/normalize.css")}}">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename = "css/skeleton.css")}}">
+     <link rel="stylesheet" href="{{url_for('static', filename = "css/normalize.css")}}"> -->
 </head>
-
 <body>
-
-    <div class="post_container">
-        <div class="title">
-            <h2>The Wall</h2>
-            <h3>Register</h3>
-            <p>After registering click go to login page and login.</p>
-            <hr>
-        </div>
-        <div class="post_body">
-           <div class="flash">
-             {% with messages = get_flashed_messages() %}
-             {% if messages %}
-             {% for message in messages %}
-             <ul>
-                {{message}}
-             </ul>
-             {% endfor %}
-             {% endif %}
-             {% endwith %}
+    <div class="container blue-grey darken-3">
+         <div class="row">
+          <div class="col s12 m7 push-m3">
+             <div class="card">
+               <div class="card-image">
+                 <img class="img hoverable" src="{{url_for('static', filename = "img/wall.jpg")}}">
+                 <span class="card-title">
+                    <p>Register</p>
+                 </span>
+               </div>
+               <div class="card-content">
+                  <div class = "row">
+                    <div class="white col s5 push-s3">
+                       <div class="col s3">
+                          <div class="login_body">
+                             {% with messages = get_flashed_messages() %}
+                             {% if messages %}
+                             {% for message in messages %}
+                             <ul>
+                                <p class="red-text">{{message}}</p>
+                             </ul>
+                             {% endfor %}
+                             {% endif %}
+                             {% endwith %}
+                             <form class="small" action="/register_user" method="post">
+                                <p>First Name:</p><input type="text" name="first_name" value="">
+                                <p>Last Name:</p><input type="text" name="last_name" value="">
+                                <p>Email:</p><input type="text" name="email" value="">
+                                <p>Password:</p><input type="password" name="password" value="">
+                                <p>Confirm Password:</p><input type="password" name="confirm_password" value="">
+                                <br>
+                                <br>
+                                <button class="btn waves-effect waves-light" type="submit">Register
+                                   <i class="material-icons right">send</i>
+                                </button>
+                            </form>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+               </div>
+               <div class="card-action">
+                 <a href="/">Back to Main</a>
+               </div>
+             </div>
           </div>
-            <form class="login" action="/register_user" method="post">
-                <h4>First Name:</h4><input type="text" name="first_name" value="">
-                <h4>Last Name:</h4><input type="text" name="last_name" value="">
-                <h4>Email:</h4><input type="text" name="email" value="">
-                <h4>Password:</h4><input type="password" name="password" value="">
-                <h4>Confirm Password:</h4><input type="password" name="confirm_password" value="">
-                <br>
-                <br>
-                <input type="submit" name="register" value="Register">
-            </form>
-            <br>
-            <br>
-            <a href="/"><button type="button" name="button">Go to Login</button></a>
-            <br>
-        </div>
-    </div>
-</body>
-
+         </div>
+         <div class="footer-copyright center-align">
+            <div class="container">
+               © 2017 Copyright
+               Andrew Chang- Coding Dojo-The Wall
+            </div>
+         </div>
+      </div>
+   </body>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript" src="js/materialize.min.js"></script>
 </html>
