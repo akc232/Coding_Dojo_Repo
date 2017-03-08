@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Survey Form</title>
+       {% load static %}
+       <link rel="stylesheet" href="{% static 'surveyForm/bootstrap.css' %}"media="screen" title="no title"  charset="utf-8">
+       <!-- <link rel="stylesheet" href="{% static 'surveyForm/css/style.css' %}"media="screen" title="no title"  charset="utf-8"> -->
+   </head>
+   <body>
+      <div class="contianer">
+         <div class="row">
+            <div class="col-md-3 col-md-push-3">
+               <h4>You have submitted this form {{request.session.counter}} times</h4>
+               <form class="" action="/survey/process" method="post">
+                  {% csrf_token %}
+                  <label>Your Name:</label><input type="text" name="first_name" value="">
+                  <label>Dojo Location:</label>
+                  <select class="" name="location">
+                     <option value="Seattle">Seattle</option>
+                     <option value="Chicago">Chicago</option>
+                     <option value="Newyork">New York</option>
+                     <option value="Los Angeles">Los Angeles</option>
+                  </select>
+                  <label>Favorite Language:</label>
+                  <select class="" name="language">
+                     <option value="html">HTML</option>
+                     <option value="python">Python</option>
+                     <option value="javascript">Javascript</option>
+                     <option value="mean">MEAN</option>
+                  </select>
+                  <label>Comment (Optional):</label><textarea name="comment" rows="8" cols="80"></textarea>
+                  <input type="submit" name="" value="Submit">
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

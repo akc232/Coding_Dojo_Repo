@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Restful Routing</title>
+      <link rel="stylesheet" href="{{url_for('static', filename = "style.css")}}">
+      <link rel="stylesheet" href="{{url_for('static', filename = "skeleton.css")}}">
+   </head>
+   <body>
+      <div class="container">
+         {% for users in users %}
+         <div class="body">
+            <h2>User: {{users.id}}</h2>
+            <h5>Full Name: {{users.name}}</h5>
+            <h5>Email: {{users.email}}</h5>
+            <h5>Created: {{users.created_at}}</h5>
+
+            <a href="/users/{{users.id}}/edit">Edit</a> |
+            <form class="" action="/users/<id>/delete" method="post">
+               <a href="/users/<id>/delete"> Delete</a>
+            </form>
+            <a href="/">Back to Main</a>
+                {% endfor %}
+         </div>
+      </div>
+   </body>
+</html>

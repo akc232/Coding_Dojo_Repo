@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show All Users Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename="css/materialize.css")}}">
+    <link rel="stylesheet" href="{{url_for('static', filename="css/style.css")}}">
+  </head>
+  <body>
+    <div class="container">
+      {% with messages = get_flashed_messages() %}
+      {% for message in messages %}
+      <p class="green white-text center">{{message}}</p>
+      {% endfor %}
+      {% endwith %}
+      <h4>Database Users</h4>
+      <table>
+        <thead>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Joined On</th>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td>{{user["first_name"]}}</td>
+            <td>{{user["last_name"]}}</td>
+            <td>{{user["email"]}}</td>
+            <td>{{user["created_at"]}}</td>
+            <td><a href="/users/{{user['iduser']}}/delete">Delete</a>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <a href="/">Home</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Restful Routing</title>
+      <!-- <link rel="stylesheet" href="{{url_for('static', filename = "style.css")}}"> -->
+      <link rel="stylesheet" href="{{url_for('static', filename = "skeleton.css")}}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="body">
+            <form class="" action="/update" method="post">
+               <input type="hidden" name="" value="{{users.id}}">
+               First:<input type="text" name="first_name" value="{{users.first_name}}">
+               Last:<input type="text" name="last_name" value="{{users.last_name}}">
+               Email:<input type="text" name="email" value="{{users.email}}">
+               <input type="submit" name="edit" value="Edit User">
+            </form>
+            <a href="/">Back to Main</a>
+         </div>
+      </div>
+   </body>
+</html>

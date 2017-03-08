@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>title</title>
+      {% load staticfiles %}
+      <link rel="stylesheet" href="{% static 'game_of_thrones/css/style.css' %}">
+   </head>
+   <body>
+      {{request.session.name}}
+      <h1>hello world!!</h1>
+      <form class="/new_user" action="/new_user" method="post">
+         {% csrf_token %}
+         <input type="text" name="first_name" value="">
+         <input type="submit" name="submit" value="Submit">
+      </form>
+   </body>
+</html>

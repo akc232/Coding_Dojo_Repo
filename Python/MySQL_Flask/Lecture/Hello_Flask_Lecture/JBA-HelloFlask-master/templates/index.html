@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Flask Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename="css/materialize.css")}}">
+    <link rel="stylesheet" href="{{url_for('static', filename="css/style.css")}}">
+  </head>
+  <body>
+    <div class="container row">
+      <h2>User Information</h2>
+
+      <form class="col s6" action="/users" method="post">
+        <input type="text" name="first_name" value="" placeholder="First Name">
+        <input type="text" name="last_name" value="" placeholder="Last Name">
+        <input type="text" name="email" value="" placeholder="E-Mail">
+        <button type="submit" name="submit">Submit</button>
+      </form>
+      <div class="col s6">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+        {% endwith %}
+      </div>
+    </div>
+  </body>
+</html>
