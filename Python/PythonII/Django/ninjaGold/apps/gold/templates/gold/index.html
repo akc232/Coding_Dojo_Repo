@@ -11,8 +11,8 @@
       <div id="container">
          <div id="top_gold">
             <div class="yourgold">
-               <p>Your Gold:</p>
-               {{request.session.money}}
+               <p>Your Gold: {{request.session.money}}</p>
+
             </div>
          </div>
          <div id="body">
@@ -57,9 +57,11 @@
          <div class="activity">
             <h6>Activities:</h6>
             <div class="log">
-               <ol>
-               <li class="{{color}}">{{request.session.activity}}</li>
-               </ol>
+               {% for activity in request.session.activity %}
+            <ul>
+               <li class="{{activity.color}}">{{activity.activity}}</li>
+            </ul>
+               {% endfor %}
             </div>
             <form class="" action="/reset" method="post">
                {% csrf_token %}

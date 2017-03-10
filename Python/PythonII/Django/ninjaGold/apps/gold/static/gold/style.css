@@ -7,7 +7,7 @@
    margin-bottom: 20px;
 }
    .yourgold{
-      width: 80px;
+      width: 150px;
       display: inline-block;
    }
    .goldCount{
@@ -40,7 +40,7 @@
    color: green;
 }
 .log{
-   height: 100px;
+   height: 200px;
    overflow-y: scroll;
    border: 2px solid black;
 
