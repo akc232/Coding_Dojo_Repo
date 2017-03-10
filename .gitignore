@@ -51,7 +51,6 @@ venv/
 ENV/
 
 yellowBelt/
-djangoEnv
-materialize/
+djangoEnv/
 overflow/
 virtualenv/
