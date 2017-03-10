@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Ninja Gold!</title>
+      {% load staticfiles %}
+      <link rel="stylesheet" href="{% static 'gold/style.css' %}"media="screen" title="no title"  charset="utf-8">
+
+   </head>
+   <body>
+      <div id="container">
+         <div id="top_gold">
+            <div class="yourgold">
+               <p>Your Gold:</p>
+               {{request.session.money}}
+            </div>
+         </div>
+         <div id="body">
+            <div class="farm">
+               <h3>Farm</h3>
+               <h6>(earns 10-20 gold)</h6>
+               <form class="farmform" action="/getgold"
+                method="post">
+                {% csrf_token %}
+                  <input type="hidden" name="building" value="farm">
+                  <input class="farmsub" type="submit" type="submit" value="Find Gold">
+               </form>
+            </div>
+            <div class="cave">
+               <h3>Cave</h3>
+               <h6>(earns 5-10 gold)</h6>
+               <form class="caveform" action="/getgold" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="building" value="cave">
+                  <input type="submit" value="Find Gold">
+               </form>
+            </div>
+            <div class="house">
+               <h3>House</h3>
+               <h6>(earns 2-5 gold)</h6>
+               <form class="houseform" action="/getgold" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="building" value="house">
+                  <input type="submit" value="Find Gold">
+               </form>
+            </div>
+            <div class="casino">
+               <h3>Casino</h3>
+               <h6>(earns/Takes 0-50 gold)</h6>
+               <form class="casinoform" action="/getgold" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="building" value="casino">
+                  <input type="submit" value="Find Gold">
+               </form>
+            </div>
+      </div>
+         <div class="activity">
+            <h6>Activities:</h6>
+            <div class="log">
+               <ol>
+               <li class="{{color}}">{{request.session.activity}}</li>
+               </ol>
+            </div>
+            <form class="" action="/reset" method="post">
+               {% csrf_token %}
+               <input type="submit" name="reset" value="Reset">
+            </form>
+         </div>
+      </div>
+   </body>
+</html>
