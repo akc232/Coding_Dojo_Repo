@@ -4,7 +4,7 @@ from django.contrib import messages
 from .models import User
 
 
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
+# EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 # Create your views here.
 def index(request):
     return render(request, 'emailapp/index.html')
