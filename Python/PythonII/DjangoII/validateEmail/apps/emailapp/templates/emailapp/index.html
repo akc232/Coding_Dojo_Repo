@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Email Validation</title>
+      {% load staticfiles %}
+      <link rel="stylesheet" href="{% static 'validate/css/bootstrap.css' %}">
+      <link rel="stylesheet" href="{% static 'validate/css/style.css' %}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="flash col-md-6">
+               {% if messages %}
+               <ul class="messages">
+                   {% for message in messages %}
+                      <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                   {% endfor %}
+               </ul>
+               {% endif %}
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6">
+               <h2>Enter an Email!</h2>
+               <form class="" action="/add" method="post">
+                  {% csrf_token %}
+                  <label>Email Address: </label><input type="text" name="email" value="">
+                  <input type="submit" name="submit" value="Submit">
+               </form>
+            </div>
+         </div>
+      </div>
+
+   </body>
+</html>

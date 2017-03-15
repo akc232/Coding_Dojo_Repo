@@ -1,0 +1,13 @@
+.container{
+   padding: 100px;
+}
+.messages{
+   border: 2px solid black;
+   background: red;
+   text-align: center;
+}
+.green{
+   border: 2px solid black;
+   background: green;
+   text-align: center;
+}

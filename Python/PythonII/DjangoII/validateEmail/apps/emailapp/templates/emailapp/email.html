@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Registered Users</title>
+      {% load staticfiles %}
+      <link rel="stylesheet" href="{% static 'validate/css/bootstrap.css' %}">
+      <link rel="stylesheet" href="{% static 'validate/css/style.css' %}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            {% if messages %}
+            <div class="green col-md-6">
+                  <ul>
+                      {% for message in messages %}
+                      <h4{% if message.tags %} class="{{ message.tags }}"{% endif %}><u>{{ message }}</u></h4>
+                      {% endfor %}
+                  </ul>
+            </div>
+            {% endif %}
+         </div>
+         <div class="row">
+            <div class="body col-md-6">
+               <h2><u>Email Addresses Entered:</u></h2>
+               {% for email in emails %}
+               <ul>
+                  <p>#:{{email.id}} Email: {{email.email}}, {{email.created_at}}</p>
+                  <p></p>
+                   <a href="/delete/{{email.id}}"><button type="button" name="button">Remove</button></a>
+                   <hr>
+               </ul>
+               {% endfor %}
+               <hr>
+               <a href="/">Back to Main</a>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
