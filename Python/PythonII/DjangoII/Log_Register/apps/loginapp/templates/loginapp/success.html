@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Success Page</title>
+      {% load staticfiles %}
+      <link rel="stylesheet" href="{% static 'loginapp/css/bootstrap.css' %}">
+      <link rel="stylesheet" href="{% static 'validate/css/style.css' %}">
+   </head>
+   <body>
+      <h2>Success! Welcome {{request.session.name}}</h2>
+      <ul style="color:green">
+         {% for message in messages %}
+         {{message}}
+         {% endfor %}
+      </ul>
+      <br>
+      <form class="logout" action="/logout" method="post">
+         {% csrf_token %}
+         <button type="submit" class="btn btn-default"> Log Out/ Return</button>
+      </form>
+   </body>
+</html>
