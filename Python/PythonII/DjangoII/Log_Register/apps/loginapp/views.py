@@ -4,12 +4,16 @@ from .models import User
 # Create your views here.
 def index(request):
     context={
-    'data': User.objects.all()
+    'data': User.objects.all(),
+    'days': range(1,32),
+    'years': range(1950,2018)
     }
+    # print context
     return render(request,'loginapp/index.html', context)
 
 def process(request):
     process=User.objects.create_new_user(request.POST)
+
     if process[0] == False:
         for error in process[1]:
             messages.error(request, error)
@@ -18,14 +22,12 @@ def process(request):
     else:
         for success in process[1]:
             messages.info(request, success)
-            # request.session.name = process[2].first_name
-            # print request.session.name
         return redirect ('/')
 
 def login(request):
 
     result= User.objects.check_user(request.POST)
-        # print result
+    # print valid, "<----"
     if result[0] ==False:
         for error in result[1]:
             messages.error(request, error)
