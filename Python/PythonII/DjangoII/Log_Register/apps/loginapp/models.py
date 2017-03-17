@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 from django.forms import extras
 from django.db import models
-from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned, ValidationError
 import re, bcrypt
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 NAME_REGEX = re.compile(r'^[a-zA-Z\-]+$')
@@ -32,8 +32,7 @@ class UserManager(models.Manager):
 
         elif len(data['password']) <8:
             flash.append('Password Must be 8 or more characters long!')
-        # if not BIRTHDAY_REGEX.match(data['birthday']):
-        #     flash.append('Invalid Birthday Format')
+
         try:
             double=User.objects.get(email=data['email'])
             form= data['email']
@@ -44,6 +43,14 @@ class UserManager(models.Manager):
             print "does not exist"
             pass
 
+        try:
+            print data['birthday']
+            pass
+
+        except ValidationError:
+            print "invalid date format."
+            flash.append('Invalid Date Format. It must be in YYYY-MM-DD format!')
+            pass
 
         if flash:
             # print "flashed message"
@@ -52,21 +59,24 @@ class UserManager(models.Manager):
             return (False, flash)
 
         else:
+            try:
+                secret= data['password'].encode()
+                hashed = bcrypt.hashpw(secret, bcrypt.gensalt())
 
-            secret= data['password'].encode()
-            hashed = bcrypt.hashpw(secret, bcrypt.gensalt())
-
-            create= User.objects.create(
-            first_name=data['first_name'],
-            last_name=data['last_name'],
-            email=data['email'],
-            birthday=data['birthday'],
-            password=hashed,
-            )
-            print "Birthday data ---->", data['birthday']
-            flash.append("Succesful! User Registered! Please Log in.")
-            # print User.objects.all()
-            return (True, flash)
+                create= User.objects.create(
+                first_name=data['first_name'],
+                last_name=data['last_name'],
+                email=data['email'],
+                birthday=data['birthday'],
+                password=hashed,
+                )
+                print "Birthday data ---->", data['birthday']
+                flash.append("Succesful! User Registered! Please Log in.")
+                # print User.objects.all()
+                return (True, flash)
+            except ValidationError:
+                flash.append('Invalid Date Format! Please enter Date!')
+                return(False, flash)
 
 
     def check_user(self, data):
@@ -90,7 +100,7 @@ class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
-    birthday = models.DateField(auto_now=False)
+    birthday = models.DateField(auto_now=False, blank=True, null=True)
     password = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
