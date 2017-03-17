@@ -5,16 +5,12 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 import re, bcrypt
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 NAME_REGEX = re.compile(r'^[a-zA-Z\-]+$')
+# BIRTHDAY_REGEX= re.compile(r'^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$')
 
 # Create your models here.
 class UserManager(models.Manager):
     def create_new_user(self, data):
         flash=[]
-
-        # person = User.objects.get(email=data['email'])
-
-        # print person
-
 
         if len(data['first_name'])< 2:
             flash.append('First Name must be greater than 2 letters')
@@ -36,11 +32,13 @@ class UserManager(models.Manager):
 
         elif len(data['password']) <8:
             flash.append('Password Must be 8 or more characters long!')
+        # if not BIRTHDAY_REGEX.match(data['birthday']):
+        #     flash.append('Invalid Birthday Format')
         try:
             double=User.objects.get(email=data['email'])
             form= data['email']
             if form == double.email:
-                flash.append('User is already registered!')
+                flash.append('User is already registered. Please Log In or Create New User. ')
 
         except ObjectDoesNotExist:
             print "does not exist"
@@ -48,9 +46,9 @@ class UserManager(models.Manager):
 
 
         if flash:
-            print "flashed message"
+            # print "flashed message"
             # print len(first), last, email
-            print User.objects.all()
+            # print User.objects.all()
             return (False, flash)
 
         else:
@@ -62,11 +60,13 @@ class UserManager(models.Manager):
             first_name=data['first_name'],
             last_name=data['last_name'],
             email=data['email'],
+            birthday=data['birthday'],
             password=hashed,
             )
-            flash.append("User Registered! Please Log in.")
+            print "Birthday data ---->", data['birthday']
+            flash.append("Succesful! User Registered! Please Log in.")
             # print User.objects.all()
-            return (True, flash, create)
+            return (True, flash)
 
 
     def check_user(self, data):
@@ -90,6 +90,7 @@ class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
+    birthday = models.DateField(auto_now=False)
     password = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -97,11 +98,3 @@ class User(models.Model):
     objects = UserManager()
     def __unicode__(self):
         return "First:"+self.first_name+" Last:"+ self.last_name+" Email:"+ self.email
-
-
-
-#validations done:
-# Registraion:
-# First and Last: Length, and name containing numbers or characters
-# Email: format, and checks for  already registered email in db
-# Password: checks for matching password and length

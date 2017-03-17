@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from .models import User
+import datetime
 # Create your views here.
 def index(request):
     context={
-    'data': User.objects.all(),
-    'days': range(1,32),
-    'years': range(1950,2018)
+    # 'data': User.objects.all(),
     }
-    # print context
+
     return render(request,'loginapp/index.html', context)
 
 def process(request):
@@ -31,13 +30,16 @@ def login(request):
     if result[0] ==False:
         for error in result[1]:
             messages.error(request, error)
-            print result[0], result[1], "<--"
+            # print result[0], result[1], "<--"
             return redirect('/')
 
     else:
         print result
         request.session['name']= result[1].first_name
-        print request.session['name']
+        request.session['last']= result[1].last_name
+        request.session['email']= result[1].email
+        print result[1]
+        # print request.session['name']
         return redirect('/success')
 
 def success(request):
@@ -52,4 +54,6 @@ def success(request):
 
 def logout(request):
     del request.session['name']
+    del request.session['last']
+    del request.session['email']
     return redirect ('/')

@@ -8,16 +8,25 @@
       <link rel="stylesheet" href="{% static 'validate/css/style.css' %}">
    </head>
    <body>
-      <h2>Success! Welcome {{request.session.name}}</h2>
-      <ul style="color:green">
-         {% for message in messages %}
-         {{message}}
-         {% endfor %}
-      </ul>
-      <br>
-      <form class="logout" action="/logout" method="post">
-         {% csrf_token %}
-         <button type="submit" class="btn btn-default"> Log Out/ Return</button>
-      </form>
+      <div class="row">
+         <div class="col-md-9 push-md-3">
+            <h2>Success! Welcome {{request.session.name}}</h2>
+            <hr>
+            <ul style="color:green">
+               {% for message in messages %}
+               {{message}}
+               {% endfor %}
+            </ul>
+            <h3><u>User: Info</u></h3>
+            <h5>Name: {{request.session.name}} {{request.session.last}}</h5>
+            <h5>Email: {{request.session.email}}</h5>
+            <br>
+            <br>
+            <form class="logout" action="/logout" method="post">
+               {% csrf_token %}
+               <button type="submit" class="btn btn-default"> Log Out/ Return</button>
+            </form>
+         </div>
+   </div>
    </body>
 </html>
