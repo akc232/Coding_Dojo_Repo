@@ -21,7 +21,12 @@ def process(request):
     else:
         for success in process[1]:
             messages.info(request, success)
-        return redirect ('/')
+            print process
+            print process[1]
+            request.session['name']= process[2].first_name
+            request.session['last']= process[2].last_name
+            request.session['email']= process[2].email
+        return render (request, 'loginapp/success.html')
 
 def login(request):
 
@@ -34,11 +39,11 @@ def login(request):
             return redirect('/')
 
     else:
-        print result
+        # print result
         request.session['name']= result[1].first_name
         request.session['last']= result[1].last_name
         request.session['email']= result[1].email
-        print result[1]
+        # print result[1]
         # print request.session['name']
         return redirect('/success')
 
@@ -53,7 +58,5 @@ def success(request):
         return render(request, 'loginapp/success.html')
 
 def logout(request):
-    del request.session['name']
-    del request.session['last']
-    del request.session['email']
+    request.session.clear()
     return redirect ('/')

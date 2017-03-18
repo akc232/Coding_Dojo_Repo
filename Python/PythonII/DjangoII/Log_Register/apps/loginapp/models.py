@@ -43,14 +43,14 @@ class UserManager(models.Manager):
             print "does not exist"
             pass
 
-        try:
-            print data['birthday']
-            pass
-
-        except ValidationError:
-            print "invalid date format."
-            flash.append('Invalid Date Format. It must be in YYYY-MM-DD format!')
-            pass
+        # try:
+        #     print data['birthday']
+        #     pass
+        #
+        # except ValidationError:
+        #     print "invalid date format."
+        #     flash.append('Invalid Date Format. It must be in YYYY-MM-DD format!')
+        #     pass
 
         if flash:
             # print "flashed message"
@@ -71,9 +71,9 @@ class UserManager(models.Manager):
                 password=hashed,
                 )
                 print "Birthday data ---->", data['birthday']
-                flash.append("Succesful! User Registered! Please Log in.")
+                flash.append("Succesful! User Registered!!")
                 # print User.objects.all()
-                return (True, flash)
+                return (True, flash, create)
             except ValidationError:
                 flash.append('Invalid Date Format! Please enter Date!')
                 return(False, flash)
