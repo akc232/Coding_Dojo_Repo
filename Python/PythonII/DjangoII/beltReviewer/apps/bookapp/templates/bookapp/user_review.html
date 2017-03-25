@@ -17,11 +17,13 @@
                <h5>Total Reviews: {{reviews}}</h5>
                <hr>
                <h5><u>Posted Reviews on the following books:</u></h5>
-               {% for post in posts %}
+               <div class="scroll col-md-4" style=" border:1px solid black; height:150px; overflow:scroll">
+                  {% for post in posts %}
                <ul>
                   <a href="{% url 'books:books' post.book.id %}">{{post.book.title}}</a>
                </ul>
                {% endfor %}
+            </div>
 
          </div>
          <div class="col-md-2 push-md-10">

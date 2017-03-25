@@ -82,7 +82,7 @@ def user(request,id):
     context = {
         'users': User.objects.filter(id=id),
         'reviews':Review.objects.filter(user_id=id).count(),
-        'posts': Review.objects.filter(user_id=id),
+        'posts': Review.objects.filter(user_id=id).distinct(),
 
     }
     # print context
