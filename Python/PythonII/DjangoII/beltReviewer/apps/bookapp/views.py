@@ -14,8 +14,9 @@ def index(request):
         context={
         'reviews': Review.objects.all().order_by('-id'),
         'books': Book.objects.all().order_by('title'),
-
         }
+
+        print context['reviews'][0].rating, "<----"
         # print context
         return render (request, 'bookapp/index.html', context)
 
@@ -23,9 +24,17 @@ def new(request):
     if 'id' not in request.session:
         return redirect ('login:index')
     #displays add book page
+    author_list=[]
     context = {
-        'authors': Book.objects.all()
+        'authors': Book.objects.all(),
+        'options': author_list,
     }
+    infos = Book.objects.all()
+    for info in infos:
+        # print info.author
+        if info.author not in author_list:
+            author_list.append(info.author)
+            print author_list
 
     return render(request, 'bookapp/add_book.html', context)
 
@@ -78,14 +87,23 @@ def show(request, id):
     return render (request, 'bookapp/show_book.html', context)
 
 def user(request,id):
-
+    # doubled=[]
     context = {
         'users': User.objects.filter(id=id),
         'reviews':Review.objects.filter(user_id=id).count(),
-        'posts': Review.objects.filter(user_id=id).distinct(),
+        'posts': Review.objects.filter(user_id=id).order_by('book_id'),
+        # 'doubles': doubled,
 
     }
-    # print context
+
+    # results= Review.objects.filter(user_id=id).order_by('book_id')
+    # for result in results:
+    #     # print result.book.title
+    #     # print result.book.id
+    #     if result.book.title not in doubled:
+    #         doubled.append(result.book.title)
+    #         doubled.append(result.book.id)
+    # print doubled[0]
 
     return render(request, 'bookapp/user_review.html',context)
 

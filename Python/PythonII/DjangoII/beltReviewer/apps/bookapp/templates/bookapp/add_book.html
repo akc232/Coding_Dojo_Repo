@@ -35,8 +35,8 @@
                         <label for="author_list">Choose from the List:</label>
                         <select class="author_list" name="author_list">
                            <option value="null">Select Author</option>
-                           {% for author in authors %}
-                           <option value="{{author.author}}">{{author.author}}</option>
+                           {% for author in options %}
+                           <option value="{{author}}">{{author}}</option>
                            {% endfor %}
                         </select>
                      </div>

@@ -28,7 +28,7 @@
          {% for review in reviews %}
          <ul>
             <h5>Review ID: {{review.id}}</h5>
-            <h5>Rating: {{review.rating}}</h5>
+            <h5>Rating: <span><img src="{% static 'bookapp/img/' %}{{review.rating}}.png" height=20px; width=80px;></span></h5>
             <h5><a href="{% url 'books:user' review.user_id %}">{{review.user.first_name}}</a> says: {{review.review}}</h5>
             <br>
             <p>{{review.created_at}}</p>
