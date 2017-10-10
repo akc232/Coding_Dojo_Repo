@@ -1,15 +1,14 @@
-<div class="container">
-   <div class="title">
-      <h1><b>US Time Zone Display</b></h1>
-
-   </div><br><br>
-   <div class="buttons">
-      <button type="button" name="button">PST</button><br><br>
-      <button type="button" name="button">MST</button><br><br>
-      <button type="button" name="button">CST</button><br><br>
-      <button type="button" name="button">EST</button><br><br>
-   </div><br><br>
-   <div class="timeDisplay">
-      <h3>Time Displays here.</h3>
+<div class="title">
+   <h1><b>US Time Zone Display</b></h1><br>
+</div>
+   <div class="stuff">
+      <button (click)= "dateByZone('PST')" [ngClass]="{selected: lastTimeZone === 'PST'} ">PST</button><br><br>
+      <button (click)= "dateByZone('MST')" [ngClass]="{selected: lastTimeZone === 'MST'} ">MST</button><br><br>
+      <button (click)= "dateByZone('CST')" [ngClass]="{selected: lastTimeZone === 'CST'} ">CST</button><br><br>
+      <button (click)= "dateByZone('EST')" [ngClass]="{selected: lastTimeZone === 'EST'} ">EST</button><br><br>
    </div>
+   <br><br>
+<div class="time">
+   <h2>{{tz}}</h2>
+   <h3>{{time | date: 'medium'}}</h3>
 </div>
