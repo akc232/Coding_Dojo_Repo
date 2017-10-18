@@ -1,0 +1,14 @@
+<form (submit)= 'onSubmit()'>
+   <input
+   type="text"
+   name="firstName"
+   [(ngModel)]= 'user.firstName'
+   required
+   minlength = "4"
+   #firstName = 'ngModel'>
+   <input type="text" name="lastName" [(ngModel)]= 'user.lastName'>
+   <input type="submit" >
+</form>
+
+{{user | json}}
+{{firstName.errors | json}}
