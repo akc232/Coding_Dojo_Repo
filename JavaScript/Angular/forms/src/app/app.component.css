@@ -1,10 +1,6 @@
-.ng-invalid {
-color: red;
- }
+.ng-invalid {}
 .ng-valid { }
 .ng-untouched { }
-.ng-touched {
-   color: red;
- }
+.ng-touched {}
 .ng-dirty { }
 .ng-pristine { }
