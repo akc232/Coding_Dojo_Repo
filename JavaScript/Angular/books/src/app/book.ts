@@ -6,4 +6,7 @@ export  class Book {
     pages: number;
     publisher: string;
 
+   constructor(){
+      this.id = Math.floor(Math.random()*100)
+   }
 }

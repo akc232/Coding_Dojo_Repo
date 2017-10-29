@@ -28,4 +28,36 @@
 
         <button>Submit</button>
     </form>
+</fieldset><br><br>
+<div>
+   <fieldset>
+
+
+   <table>
+      <thead>
+         <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Author</th>
+            <th>Actions</th>
+         </tr>
+      </thead>
+      <tr *ngFor= 'let book of books' (click)= 'selectBook(book)'>
+         <td>{{ book.id }}</td>
+         <td>{{ book.title }}</td>
+         <td>{{ book.year }}</td>
+         <td>{{ book.author }}</td>
+         <td><button>Edit</button></td>
+      </tr>
+   </table>
+   </fieldset>
+</div>
+
+<fieldset *ngIf= 'selectedBook'>
+   <legend>Selected Book</legend>
+   <p>ID: {{ selectedBook.id }}</p>
+   <p>Title: {{ selectedBook.title}}</p>
+   <p>Year: {{ selectedBook.year }}</p>
+   <p>Author: {{ selectedBook.author }}</p>
 </fieldset>
