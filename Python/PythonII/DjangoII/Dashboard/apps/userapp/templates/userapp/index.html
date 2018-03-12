@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Sign in Page</title>
+      <title>Login/ Register!</title>
+      {% load staticfiles %}
+      <link rel="stylesheet" href="{% static 'userapp/css/bootstrap.css' %}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-8">
+               <div class="title">
+                  <h3>Sign In</h3>
+                  <hr>
+               </div>
+               <form class="form-group" action="{% url 'userapp:login' %}" method="post">
+                  <div class="form-inline">
+                     {% csrf_token %}
+                     <label for="email">Email: </label><input type="text" name="email" value="">
+                  </div>
+                  <div class="form-inline">
+                     <label for="password">Password: </label><input type="text" name="password" value="">
+                  </div>
+                  <button type="submit" class="btn btn-default"> Log In</button>
+               </form>
+            </div>
+            <div class="flash col-md-4">
+               {% for message in messages %}
+               <ul class=red style="color:red">
+                  {{message}}
+               </ul>
+               {% endfor %}
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-8">
+               <h4>Havent registered yet? <a href="{% url 'userapp:register' %}"><u>Click Here</u></a> to Register!</h4>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Create New Branch</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   </head>
+   <body>
+      <div class="container">
+         <br>
+         <div class="links">
+            <a href="/dojo">Home</a> | <a href="/dojo/<%=@dojo.id%>/students/<%=@student.id%>/edit">Edit</a>
+         </div><br>
+         <div class="branch_name">
+            <h2><%=@dojo.branch%>'s <%=@student.first_name%> <%=@student.last_name%></h2>
+         </div>
+         <hr><br>
+         <h4>Email: <%=@student.email%></h4><br><br>
+         <div class="cohort">
+            <h5>Cohort</h5>
+            <table class="table">
+               <thead>
+                  <th>First</th>
+                  <th>Last</th>
+                  <th>Email</th>
+               </thead>
+               <tbody>
+                  <%@cohort.each do |student| %>
+                  <tr>
+                     <td><%=student.first_name%></td>
+                     <td><%=student.last_name%></td>
+                     <td><%=student.email%></td>
+                  </tr>
+                  <% end %>
+               </tbody>
+            </table>
+
+         </div>
+      </div>
+   </body>
+</html>

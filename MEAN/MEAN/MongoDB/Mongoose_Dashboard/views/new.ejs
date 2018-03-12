@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Cats</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class="row">
+         <div class="text-center">
+            <h2>Hello. Welcome to Cats</h2><br>
+            <button type="button" name="button"><a href="/">Home</a></button><br>
+            <hr>
+            <h4>Create a cat here.</h4>
+            <br>
+            <form id="new_cat" action="/cats" method="post">
+               Name: <input id ="name"type="text" name="name" value=""><br><br>
+               Weight: <input id="wight"type="text" name="weight" value=""><br><br>
+               Color: <input id ="text"type="text" name="color" value=""><br><br>
+               <input type="submit" name="submit" value="Add Cat"><br><br>
+
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

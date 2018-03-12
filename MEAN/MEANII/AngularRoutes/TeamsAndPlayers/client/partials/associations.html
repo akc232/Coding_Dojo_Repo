@@ -1,0 +1,25 @@
+<div ng-controller = 'associationsContoller'>
+   <form>
+      <select ng-model = 'player.index'>
+         <option ng-repeat= 'player in players' value='{{$index}}' ng-bind='player.name'></option>
+      </select>
+      <select ng-model='player.team'>
+         <option ng-repeat='team in teams' ng-if='team.team' ng-bind= 'team.team' value = '{{team.team}}'></option>
+      </select>
+      <button type="submit" name="button" ng-click='addPlayerToTeam()'>Add Person To Team</button>
+   </form>
+   <table class= 'table table-bordered'>
+      <thead>
+         <th>Name: </th>
+         <th>Team: </th>
+         <th>Action: </th>
+      </thead>
+      <tbody ng-repeat = 'player in players'>
+         <td ng-bind='player.name'></td>
+         <td ng-bind='player.team'></td>
+         <td><button type="button" name="button" >Remove Assignment</button></td>
+      </tbody>
+   </table>
+
+
+</div>

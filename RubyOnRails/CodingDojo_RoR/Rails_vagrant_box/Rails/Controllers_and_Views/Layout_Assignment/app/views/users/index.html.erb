@@ -1,0 +1,40 @@
+<% content_for :left_column do %>
+<table class="table">
+   <thead>
+      <th>First</th>
+      <th>Last</th>
+      <th>Favorite Language</th>
+   </thead>
+   <tbody>
+      <%@users.each do | user |%>
+      <tr>
+         <td><%= user.first_name %></td>
+         <td><%= user.last_name %></td>
+         <td><%= user.favorite_language %></td>
+      </tr>
+      <% end %>
+   </tbody>
+</table>
+<% end %>
+<% content_for :right_column do %>
+<h1>New User</h1>
+<% if flash[:errors]%>
+   <% flash[:errors].each do |error|%>
+   <p class="alert alert-danger"><%= error%></p>
+   <% end %>
+<% end %>
+<form action="/users" method="post">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+   <div class="form-group">
+      <label for="">First Name: </label><br><input type="text" class="form-control"  name="first" value="">
+   </div>
+   <div class="form-group">
+      <label for="">Last Name: </label><br><input type="text" class="form-control"  name="last" value="">
+   </div>
+   <div class="form-group">
+      <label for="">Favortie Language: </label><br><input type="text" class="form-control" name="language" value=""><br><br>
+   </div>
+   <input type="submit" name="Create User" class="btn btn-primary"><br><br>
+   <p><%= link_to "All Posts", 'posts', class: "btn btn-info" %></p>
+</form>
+<% end %>

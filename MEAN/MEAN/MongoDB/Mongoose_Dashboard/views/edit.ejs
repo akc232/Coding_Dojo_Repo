@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Cats</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class="row">
+         <div class="text-center">
+            <h2>Hello. Welcome to Cats</h2> <button type="button" name="button"><a href="/">Home</a></button><br>
+            <hr>
+            <h4>EDIT a cat here.</h4>
+            <br>
+            <form id="new_cat" action="/cats/<%=cats[0]._id%>/update" method="post">
+               <!-- place values inside to edit cats -->
+               Name: <input id ="name"type="text" name="name" value="<%=cats[0].name%>"><br><br>
+               Weight: <input id="wight"type="text" name="weight" value="<%=cats[0].weight%>"><br><br>
+               Color: <input id ="text"type="text" name="color" value="<%=cats[0].color%>"><br><br>
+               <input type="submit" name="submit" value="Update <%=cats[0].name%>"><br><br>
+            </form><br>
+            <form class="" action="/cats/<%=cats[0]._id%>/delete" method="post">
+               <input type="submit" name="submit" value="Delete Cat">
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

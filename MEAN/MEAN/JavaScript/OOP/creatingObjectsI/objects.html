@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Objects 1</title>
+   </head>
+   <body>
+
+   </body>
+   <script type="text/javascript">
+      function VehicleConstructor(name, wheels, passengers){
+         var vehicle = {}
+         vehicle.name = name;
+         vehicle.wheels = wheels;
+         vehicle.passengers = passengers;
+         console.log("Name: "+vehicle.name+", Wheels: "+vehicle.wheels+", Passengers: "+vehicle.passengers);
+         vehicle.makeNoise = function(noise){
+            console.log(noise)
+            }
+         people = 0;
+         vehicle.pickUp = function pickUp(pick){
+
+            people += pick;
+            console.log("People: "+people);
+            return pickUp
+            }
+
+         return vehicle;
+      }
+      var evo = VehicleConstructor("evo", 4, 4);
+      evo.makeNoise("Beep Beep");
+      var bike = new VehicleConstructor("Bike", 2, 1);
+      bike.makeNoise("Ring Ring");
+      var sedan = new VehicleConstructor("Sedan", 4, 5);
+      sedan.makeNoise("Honk Honk");
+      var bus = new VehicleConstructor("Bus", 12, 0);
+      bus.pickUp(25);
+      bus.pickUp(25);
+      bus.pickUp(25);
+      bus.pickUp(25);
+   </script>
+</html>

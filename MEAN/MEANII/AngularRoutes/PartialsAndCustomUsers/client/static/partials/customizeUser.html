@@ -1,0 +1,30 @@
+<div ng-contoller= "CustomizeUsersController">
+   <fieldset>
+      <legend>Add a User</legend>
+      <form>
+         <label for="">First Name: </label>
+         <input type="text" ng-model = "user.first"><br>
+         <label for="">Last Name: </label>
+         <input type="text" ng-model = "user.last"><br>
+         <label for="">Favorite Language: </label>
+         <input type="text" ng-model = "user.language"><br>
+         <input type="submit" value=" Add User" ng-click='addUser()'>
+      </form>
+      <br>
+      <hr>
+      <table class="table table-bordered">
+         <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Favorite Language</th>
+            <th>Actions</th>
+         </thead>
+         <tbody ng-repeat = 'user in users'>
+            <td ng-bind = 'user.first'></td>
+            <td ng-bind = 'user.last'></td>
+            <td ng-bind = 'user.language'></td>
+            <td> <button type="button" name="button" ng-click='deleteUser(user)'>Remove User</button></td>
+         </tbody>
+      </table>
+   </fieldset>
+</div>

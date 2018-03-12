@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="productsApp">
+   <head>
+      <meta charset="utf-8">
+      <title>Products with a Factory</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="bower_components/angular/angular.js"></script>
+      <script type="text/javascript">
+         var app = angular.module('productsApp', []);
+         app.factory('productFactory', function(){
+            const products = [
+               {name: 'Keyboard', price: 159.99},
+               {name: 'Mouse', price: 59.99},
+               {name: 'Basketball', price: 59.99},
+            ];
+            const factory = {};
+            factory.getProducts = function(callback){
+               callback(products)
+            }
+            factory.addProduct = function(product){
+               products.push(product)
+            }
+            factory.removeProduct = function(product){
+               const item = products.indexOf(product)
+               products.splice(item,1)
+            }
+            return factory;
+         })
+         app.controller('productController', ['$scope', 'productFactory', function($scope, productFactory){
+            $scope.products = [];
+            productFactory.getProducts(function(data){
+               $scope.products = data;
+            });
+            $scope.addProduct = function(){
+               console.log("this should be adding!!");
+               productFactory.addProduct($scope.product)
+               $scope.product={};
+            }
+            $scope.removeProduct = function(product){
+               productFactory.removeProduct(product)
+            }
+         }])
+      </script>
+      <style media="screen">
+         .container{
+            padding:40px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div ng-controller="productController">
+            <h3>Add a product</h3>
+            <form ng-submit = "addProduct()">
+               Name: <input type="text" value="" ng-model="product.name"><br>
+               Price: <input type="number" value="" step=".01" ng-model="product.price"><br>
+               <input type="submit" value="Add Product">
+            </form>
+         </div>
+         <hr>
+         <br><br>
+
+         <div ng-controller='productController'>
+            <h5>List of Items</h5>
+            <table class="table">
+               <thead>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Action</th>
+               </thead>
+               <tbody ng-repeat= "product in products| orderBy: 'price' track by $index">
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.price }}</td>
+                  <td><button type="button" name="button" ng-click="removeProduct(product)">Delete Product</button></td>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

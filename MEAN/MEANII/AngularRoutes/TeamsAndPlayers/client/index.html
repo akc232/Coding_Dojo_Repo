@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app= 'myApp'>
+   <head>
+      <meta charset="utf-8">
+      <title>Teams and Players Page</title>
+      <script src="angular/angular.js"></script>
+      <script src="angular-route/angular-route.js"></script>
+      <script src="factories/playersFactory.js"></script>
+      <script src="factories/teamsFactory.js"></script>
+      <script src="controllers/playersController.js"></script>
+      <script src="controllers/teamsController.js"></script>
+      <script src="controllers/associationsController.js"></script>
+      <script src="config/routes.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <style media="screen">
+         a{
+            margin-right: 30px;
+         font-size: 20px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="title">
+            <h3> Welcome to the Teams and Player Wire Frame. Build a Team!!!</h3>
+         </div>
+         <div class="links">
+            <a href="#!/players"><u>Players</u></a>
+            <a href="#!/teams"><u>Teams</u></a>
+            <a href="#!/associations"><u>Associations</u></a>
+         </div>
+         <hr><br>
+         <div ng-view>
+            //partials go here
+         </div>
+      </div>
+   </body>
+</html>

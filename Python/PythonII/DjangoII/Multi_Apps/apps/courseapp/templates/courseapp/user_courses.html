@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>User Courses</title>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="">
+               <h3><u>User: Info</u></h3>
+               <h5>Name: {{request.session.name}} {{request.session.last}}</h5>
+               <h5>Email: {{request.session.email}}</h5>
+            </div>
+         </div>
+         <div class="row">
+            <div class="form-inline col">
+               <form class="user_courses" action="{% url 'course:add_user_courses' %}" method="post">
+                  {% csrf_token %}
+                  <select class="users" name="student">
+                     <option value="Users">Users</option>
+                     {% for user in users %}
+                     <option value="{{user.user.email}}">{{user.user.email}}</option>
+                     {% endfor %}
+                  </select>
+                  <select class="courses" name="class">
+                     <option value="Courses">Courses</option>
+                     {% for course in users %}
+                     <option value="{{course.name}}">{{course.name}}</option>
+                     {% endfor %}
+                  </select>
+                  <button type="submit" name="button">Add User to Course</button>
+               </form>
+            </div>
+
+         </div>
+         <div class="row">
+            <div class=" col">
+               <table class="table table-bordered">
+                  <thead>
+                     <th>Course</th>
+                     <th>Title</th>
+                     <th>Number of Users</th>
+                  </thead>
+                  {% for data in users %}
+                  <tr>
+                     <td>{{data.id}}</td>
+                     <td>{{data.name}}</td>
+                     <td>{{data.count}}</td>
+                     {% endfor %}
+                  </tr>
+               </table>
+            </div>
+         </div>
+         <a href="{% url 'login:success' %}">Return Home</a>
+      </div>
+   </body>
+</html>

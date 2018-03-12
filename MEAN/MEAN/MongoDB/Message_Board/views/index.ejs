@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Dashboard Page</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   </head>
+   <style media="screen">
+      body{
+         padding:40px;
+      }
+      #messComments{
+         margin-left: 30px;
+      }
+
+   </style>
+   <body>
+      <div class="title">
+         <h1><u>Welcome to the Dojo Message Board</u></h1>
+         <!-- <% if (typeof(error) !='undefined'){%>
+            <p>{%= error %}</p>
+         <% } %> -->
+      </div>
+      <div class="row">
+         <div id="main">
+            <br>
+            <form class="" action="/message" method="post">
+               <label for="">Name:</label><br>
+               <input type="text" name="name" value=""><br>
+            <label for="">Message:</label><br>
+            <textarea name="message" rows="4" cols="40"></textarea><br>
+               <input type="submit" name="submit" value="Post Message">
+            </form>
+         </div>
+      </div>
+      <hr><br>
+      <% for(message of messages){ %>
+         <br><br>
+      <div class="row">
+            <h4>Name: <%= message.name  %></h4>
+            <h4>Message: "<%= message.message  %>" </h4>
+            <hr><br>
+            <%for(comment of message._comments){%>
+         <div id="messComments">
+            <p><b>Name:</b> <%= comment.name%></p>
+            <p><b>Comment: </b><%= comment.comment %></p>
+         </div>
+         <% } %>
+            <div id="formComments">
+               <form action="/comment/<%= message._id %>" method="post">
+                  <label for="">Name:</label><br>
+                  <input type="text" name="name" value=""><br>
+                  <label for="">Comment:</label><br>
+                  <textarea name="comment" rows="4" cols="40"></textarea><br>
+                  <input type="submit" name="submit" value="Post Comment">
+               </form>
+            </div>
+      </div>
+      <% } %>
+   </body>
+   <hr>
+   <footer style="color:white;">@Wireframe Created By: Andrew.K.Chang 8.10(4/17)</footer>
+</html>

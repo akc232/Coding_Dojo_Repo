@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>MEAN Stack Wall</title>
+      <script src='angular/angular.js'></script>
+      <script src='angular-route/angular-route.js'></script>
+      <script src='angular-cookies/angular-cookies.js'></script>
+      <script src= 'app/app.js'></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <style media="screen">
+         #container{
+            padding:40px;
+         }
+         #headRight{
+         margin-left: 850px;
+         margin-top: -40px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="header">
+            <h3>MEAN Stack Wall</h3>
+            <div id="headRight">
+            <h5>Welcome {{ persons user name here }}</h5>
+            <button type="button" name="button">Log Out</button>
+         </div>
+         </div><br><hr><br>
+         <div class="wallPost">
+            <h5>Post a Message: </h5>
+            <form>
+               <textarea name="name" rows="4" cols="60"></textarea>
+               <button type="submit" name="button">Post Message</button>
+            </form>
+         </div><br><hr>
+         <div class="wallBody">
+            <h5>Wall post will show here</h5>
+            <p>Comments will show here</p>
+            <form>
+               <p>comment box</p>
+               <textarea name="name" rows="4" cols="40"></textarea>
+               <button type="submit" name="button">Post Message</button>
+            </form>
+
+         </div>
+
+      </div>
+      <div ng-controller='mainController'>
+         <button type="button" ng-click ='logout(user)' name="button">Logout</button>
+      </div>
+
+   </body>
+</html>

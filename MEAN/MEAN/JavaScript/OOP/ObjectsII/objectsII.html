@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Objects 1</title>
+   </head>
+   <body>
+
+   </body>
+   <script type="text/javascript">
+      function VehicleConstructor(name, wheels, passengers){
+         // var vehicle = {}
+         var distance_traveled = 0;
+         distance_traveled.speed = function updateDistanceTraveled(speed){
+            distance_traveled+= speed;
+            console.log("this is a private method");
+         }
+         this.name = name;
+         this.wheels = wheels;
+         this.passengers = passengers;
+         this.speed = 0;
+         console.log("Name: "+this.name+", Wheels: "+this.wheels+", Passengers: "+this.passengers);
+         this.makeNoise = function(noise){
+            console.log(noise)
+            }
+         people = 0;
+         this.pickUp = function pickUp(pick){
+
+            people += pick;
+            console.log("People: "+people);
+            return pickUp
+            }
+         this.move = function move()
+
+
+         // return this;
+      }
+      var evo = new VehicleConstructor("evo", 4, 4);
+      evo.makeNoise("Beep Beep");
+      var bike = new VehicleConstructor("Bike", 2, 1);
+      bike.makeNoise("Ring Ring");
+      var sedan = new VehicleConstructor("Sedan", 4, 5);
+      sedan.makeNoise("Honk Honk");
+      var bus = new VehicleConstructor("Bus", 12, 0);
+      bus.pickUp(25);
+      bus.pickUp(25);
+      bus.pickUp(25);
+      bus.pickUp(25);
+   </script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "app">
+<head >
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="assets/main.css"> -->
+  <script src = 'angular/angular.js'></script>
+  <script src = 'angular-route/angular-route.js'></script>
+  <script src = 'angular-cookies/angular-cookies.js'></script>
+  <script src="app/app.js" charset="utf-8"></script>
+  <script src="app/factories/userFactory.js" charset="utf-8"></script>
+  <script src="app/controllers/userController.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style media="screen">
+     .container{
+        padding:40px;
+     }
+  </style>
+</head>
+<div class="container">
+   <h3>Login and Registration Page!</h3>
+   <a href="#!/login">Login Here</a>
+<div ng-view=''>
+</div>
+</body>
+</html>

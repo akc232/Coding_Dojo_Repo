@@ -1,0 +1,19 @@
+<section ng-init= 'getFriends()'>
+   <div>
+      <table class="table table-bordered">
+         <a href="#!/friends/newFriend">Create a new Friend!</a><br><br>
+         <thead>
+            <th>Name:</th>
+            <th>Show</th>
+            <th>Update</th>
+            <th>Delete</th>
+         </thead>
+         <tbody ng-repeat ='data in friends'>
+            <td>{{data.first}} {{data.last}}</td>
+            <td><a href="#!/friends/{{data._id}}">show</a></td>
+            <td><a href="#!/friends/{{data._id}}/edit">update</a></td>
+            <td><button type="button" name="button" ng-click = 'deleteFriend(data._id)'>Delete</button></td>
+         </tbody>
+      </table>
+   </div>
+</section>

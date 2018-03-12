@@ -1,0 +1,3 @@
+Name: Andrew Chang
+Project: Relearning Python and Developing.
+Goal: Work any where in the world. Live free and happy.

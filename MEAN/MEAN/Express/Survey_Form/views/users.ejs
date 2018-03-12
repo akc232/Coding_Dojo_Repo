@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <link rel="stylesheet" href="http://localhost:8000/style.css" type="text/css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div id = "body">
+               <h3><u>Submitted Information!!!</u></h3>
+                  <h5>Your Name: <%= user.name %></h5>
+                  <br>
+                  <h5>Dojo Location:<%= user.dojo %> </h5>
+                  <br>
+                  <h5>Favorite Language: <%= user.language %> </h5>
+                  <br>
+                  <h5>Comment: <%= user.comment %> </h5>
+                  <br>
+                  <button type="button" name="button"><a href="/">Go back</a></button>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

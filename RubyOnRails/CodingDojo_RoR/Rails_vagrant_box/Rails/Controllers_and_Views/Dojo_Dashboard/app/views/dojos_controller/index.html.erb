@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Dojo Dashboard</title>
+   </head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <body>
+      <div class="container">
+         <div class="title">
+            <h3>Dojos!!</h3>
+         </div><br>
+         <div class="description">
+            <p>Add a branch to the list. Add and edit students attending the branch, and find contact information.</p>
+         </div>
+         <% if flash[:notice] %>
+	         <p style="color:green"><%= flash[:notice] %></p>
+         <% end %>
+         <br>
+         <div class="list">
+            <table class = "table">
+               <thead>
+                  <th>Coding Dojo Branch</th>
+                  <th>Street</th>
+                  <th>City</th>
+                  <th>State</th>
+                  <th>Actions</th>
+               </thead>
+               <% @dojo.each do |dojo|%>
+               <tbody>
+                  <td><%= dojo.branch%></td>
+                  <td><%= dojo.street%></td>
+                  <td><%= dojo.city%></td>
+                  <td><%= dojo.state%></td>
+                  <td><a href="dojo/<%=dojo.id%>"> Show</a> | <a href="dojo/<%= dojo.id%>/edit"> Edit</a> | <a href="dojo/<%=dojo.id%>" data-method="delete">Delete</a></td>
+               </tbody>
+               <% end %>
+            </table>
+         </div>
+         <div class="new_dojo">
+            <a href="dojo/new">Create a new Branch</a>
+         </div>
+      </div>
+   </body>
+</html>

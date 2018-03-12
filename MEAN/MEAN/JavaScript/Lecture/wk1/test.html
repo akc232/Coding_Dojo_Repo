@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Document</title>
+ <script type="text/javascript">
+   document.addEventListener('DOMContentLoaded', function(){
+     var start = document.getElementById('start');
+     var mash = document.getElementById('mash');
+     var restart = document.getElementById('restart');
+
+     clear();
+
+     start.onclick = function(){
+       //console.log("We clicked it!")
+      //  console.dir(start);
+       start.hidden=true;
+       mash.hidden=false;
+       time = Date.now();
+       setTimeout(function(){
+         restart.hidden=false;
+         mash.hidden=false;
+         mash.disabled= true;
+         document.getElementById('msg').innerHTML= "<p>In" + (Date.now()-time)/1000 + " seconds you clicked the button"+ count+ "</p>";
+       }, random()*1000);
+     };
+
+     mash.onclick = function(){
+       count++;
+     };
+
+     restart.onclick = clear;
+
+     function clear(){
+       count = 0;
+       time = 0;
+       start.hidden=false;
+       mash.hidden=true;
+       mash.disabled=false;
+       restart.hidden=true;
+       document.getElementById('msg').innerHTML = "";
+     };
+
+     function random(){
+       return Math.floor(Math.random()*5)+1;
+     };
+
+
+
+   });
+
+
+ </script>
+</head>
+<body>
+ <h2>Click the start button to begin timing!</h2>
+ <button id="start">Start</button>
+ <button id="mash">Mash</button>
+ <button id="restart">Restart</button>
+ <div id="msg">
+ </div>
+
+</body>
+</html>

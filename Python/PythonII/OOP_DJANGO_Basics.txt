@@ -1,0 +1,329 @@
+Python - OOP
+
+Key Assignment
+
+Animal (Tuesday)
+Django: Survey Form (Thursday)
+Everything in OOP past Animal, and everything in Python Advanced Concepts, is Optional.
+
+Do not let yourself get behind by spending too long on the optionals!
+
+What's OOP?
+
+Object Oriented Programming
+
+An approach to avoid repeating ourselves and simplify debugging
+Considers things in terms of Classes and Instances
+A Class is the ideal representation / blueprint for a thing, the Instance is the particular.
+From one blueprint, we can create many individual instances!
+How would we represent a person?
+Attributes/Properties - e.g. a Name and Age
+Actions/Methods/Functions - e.g. Walk, Talk, Make
+class Person(object):
+  def __init__(self):
+    self.name = "Michael"
+    self.age = 30
+    self.energy = 100
+
+  def walk(self):
+    self.energy -= 1
+
+  def talk(self):
+    print "Hello there!"
+Cool, but how do we create an INSTANCE of Person?
+person1 = Person()
+person1.talk()
+Okay, but this isn't practical. Everyone is named 'Michael'?!
+class Person(object):
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+    self.energy = 100
+
+  def walk(self):
+    self.energy -= 1
+
+  def talk(self):
+    print "Hello, I'm {}!".format(self.name)
+
+person1 = Person('Michael', 30)
+person1.talk()
+That's DYNAMIC! The init method lets us customize our attributes.
+TAKEAWAY: Instead of writing copious amounts of code with the potential for repetition, let's create a CUSTOMIZABLE BLUEPRINT!
+Inheritance
+
+Our Person class looks a bit mundane doesn't it?
+What if we wanted a more specific type of Person?
+Let's keep those goodies from the Person class but add some more things to another class. A coder class!
+class Coder(Person):
+  def __init__(self, name, age, type_speed):
+    super(Coder, self).__init__(name, age)
+    self.type_speed = type_speed
+
+  def code(self):
+    print "I'm Coding Here!"
+We ingested a Person! Not really, but we can imagine that we've inherited all the properties and methods of the Person class inside the Coder class
+coder1 = Coder('Michael', 30, '60wpm')
+coder1.talk()
+What else can we get out of this Coder? Person attributes and methods?
+
+-----------------------------------------------------------------------------------------------------------------------
+
+More OOP / Intro to MVC
+
+Landscape for the rest of the week:
+
+Tuesday (that's today!): More OOP / What is MVC / Why Django?
+Wednesday: Django Installation code-along
+Thursday: Django basics: URL routing and templates
+Friday: Code Review of The Wall and the early Django assignments
+We've learned the syntax for Python's OOP
+
+We can create Classes
+
+which can inherit from other Classes
+We can give our classes Attributes (properties) and Methods (actions)
+
+We can create particular instances of our class
+
+We can use self to reference the particular instance of the class and manipulate it
+
+We can return self to allow us to chain methods together
+
+Questions about this before we move on?
+
+Inheritance, Encapsulation, Polymorphism
+
+Inheritance
+
+In Python:
+
+Methods of the parent class are automatically made accessible to child classes.
+Attributes are only inherited if the parent class' _init_ method is explicitly invoked with the super function.
+class Coder(Person):
+    def __init__(self, languages):
+        super(Coder, self).__init__(name)
+    #   self.languages = languages
+
+    # def code(self, language):
+    #   if language in self.languages:
+    #       print "coding in ", language
+    #   else:
+    #       print "{} doesn't know {}!".format(self.name, language)
+    #   return self
+Encapsulation
+
+Polymorphism
+
+Multiple Inheritance
+
+class Vertebrate(object):
+    def __init__(self):
+        self.has_backbone = True
+
+class Bird(Vertebrate):
+    def __init__(self):
+        super(Bird, self).__init__()
+        self.feathers = True
+        self.warm_blooded = True
+        self.lays_eggs = True
+
+class Lizard(Vertebrate):
+    def __init__(self):
+        super(Lizard, self).__init__()
+        self.warm_blooded = False
+        self.lays_eggs = True
+        self.has_scales = True
+
+class Dinosaur(Bird, Lizard):
+    def __init__(self):
+        super(Dinosaur, self).__init__()
+        self.feathers = False
+
+dino = Dinosaur()
+print dino.has_scales       #True
+print dino.lays_eggs            #True
+print dino.feathers             #False
+print dino.warm_blooded     #True <-- because it inherits from the left-most class if the attribute exists in multiple parent classes!~
+print dino.has_backbone     #True
+
+The MVC (Django MTV) Concept
+
+Until now, we've only dealt with Flask. What if the application gets massive?
+How big was your server.py file in The Wall? What if instead of 2 pages you had 20?
+How do we manage all those routes and keep everything straight?
+Enter Model, View, Controller (MVC)
+Separation of Concerns
+Avoid chaos
+Know where to go
+Split out the logic in appropriate places
+Future Maintainability
+Reusable code
+Routing
+
+In flask, we might have a had a route set up like this:
+@app.route('/users')
+def show_users():
+  #run some SQL
+  return render_template('users.html', users=users)
+As we add more and more routes to our app, we're going to see the utility of creating a file dedicated to handling various routes.
+The flow: Routes get hit first and potentially matched and fire off corresponding controller (Django view) methods
+But what about the methods those routes used to invoke?
+Controllers (Views)
+
+Think of controllers (views) as the traffic cop.
+When certain routes were matched in Flask, the following methods was executed
+Now that our apps could get potentially large, we're going to want to split out our methods from our routes
+The flow: Controller methods get executed based on the routes file
+Controllers could then call up on Models to do some database work for them.
+We really don't want controllers doing a lot of the leg work. We just want them to delegate tasks.
+Models (Models)
+
+Models are the place where we're going to house the database interaction/logic portions of our code
+The flow: Models could be called into action by controllers to fetch DB info and pass it back to the controller
+These model files could be big and bulky at times which is good!
+We want controllers to be skinny and models to be dense
+Views (Templates)
+
+Client-facing HTML/CSS etc.
+Nothing new here, we're still building out templates the way we would have before, but they are referred to as views in the MVC sense. Templates in Django.
+We still throw data into the template just as we always have.
+The flow: Views (templates) are rendered by the controller and shown to the client
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Landscape for the week:
+
+Monday: OOP
+Tuesday: More OOP / What is MVC / Why Django?
+Wednesday: Django Installation code-along
+Thursday: Django basics: URL routing and templates
+Friday: Code Review of The Wall and the early Django assignments
+Installing Django
+
+Virtual Environment
+
+Mac:
+
+navigate to Python/virtualenvs
+virtualenv djangoEnv
+source djangoEnv/bin/activate
+pip install django
+navigate to Python/django
+Windows (git bash):
+
+navigate to Python/virtualenvs
+python -m virtualenv djangoEnv
+source or call or nothing preceding djangoEnv/Scripts/activate
+(with environment active) pip install django
+navigate up a level and over: cd ../django
+Django
+
+django-admin startproject project_name
+mkdir apps
+touch apps/init.py
+cd apps
+python ../manage.py startapp app_name
+touch app_name/urls.py
+Setting up a server / learning the file structure
+
+M T V
+urls.py (inner project folder) (app level)
+settings.py (inner project folder)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Landscape for the week:
+
+Monday: OOP
+Tuesday: More OOP / What is MVC / Why Django?
+Wednesday: Django Installation code-along
+Thursday: Django basics: URL routing and templates
+Django routing
+
+Regular Expressions
+
+Basic Syntax
+Ordinary characters
+Escaping: "\"
+Anything: "."
+Start: "^"
+End: "$"
+Word characters: "\w", "\W"
+Digit characters: "\d"
+Boundaries and spaces: "\b", "\s"
+Groups: "[a-zA-Z0-9]"
+Repetitions: "*", "+", "?"
+Capture groups: "()"
+Naming them: "(?P)"
+Further reading
+
+https://docs.python.org/3/library/re.html
+regexr.com
+pythex.org
+Django templates
+
+Django uses a templating engine that is VERY similar to Jinja2.
+
+When in doubt, read the docs: https://docs.djangoproject.com/en/1.10/topics/templates/ https://docs.djangoproject.com/en/1.10/ref/templates/builtins/
+
+context dictionary
+
+variables {{ username }}
+
+dot notation {{ my_dict.first_name }}
+even for lists {{ my_list.2 }}
+tags
+
+    {% if name == "Ted" %}
+        <h1> Hey ol' Teddy ol' boy! </h1>
+    {% else %}
+        <h1> Hey {{ name }}! </h1>
+    {% endif %}
+
+    {% for key, val in data.items %}
+        <p> {{ key }}: {{ val }} </p>
+    {% empty %}
+        <p> This dictionary has nothing in it </p>
+    {% endfor %}
+comments {# single line comment #}
+{% comment "optional note" %}
+    other stuff to be commented out
+{% endcomment %}
+
+
+
+static files
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'app_name/css/style.css' %}">
+requires the following folder structure:
+project_name/ (outer)
+    apps/
+        app_name/
+            migrations/
+            static/
+                app_name/
+                    css/
+                        style.css
+            templates/
+                app_name/
+                    index.html
+    project_name/ (inner)
+        settings.py
+        urls.py
+        etc
+    manage.py
+Forms
+
+With forms, we're still treating them the same way we did in Flask. We either have POST information or GET information, but the difference in Django is that we get to use the request dictionary again to check for different methods.
+Need to check out what's inside a POST? request.POST has it.
+Need to check out what's inside a GET? request.GET has it.
+request is a one-stop shop
+Notable difference in forms themselves...
+We need a CSRF token. This is an added layer of security for our forms. If the CSRF token is unrecognized, then Django won't accept it.
+
+<form action="/users" method="post">
+  {% csrf_token %}
+  Name: <input type="text" name="name" />
+  <input type="submit" value="Submit" />
+</form>

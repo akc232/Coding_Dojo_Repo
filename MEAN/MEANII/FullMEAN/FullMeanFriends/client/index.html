@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app = 'friendsApp'>
+   <head>
+      <meta charset="utf-8">
+      <title>Friends API</title>
+      <script src='angular/angular.js'></script>
+      <script src='angular-route/angular-route.js'></script>
+      <script src= 'app/app.js'></script>
+      <script src= 'app/factories/friendsFactory.js'></script>
+      <script src= 'app/controllers/friendsController.js'></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <style media="screen">
+         #container{
+            padding:20px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div ng-hide="true">
+            <p>Angular is not working</p>
+         </div>
+         <h5>Friends API page!!!</h5>
+         <br><hr><br>
+         <div ng-view>
+            <!-- Partials here -->
+         </div>
+      </div>
+   </body>
+</html>

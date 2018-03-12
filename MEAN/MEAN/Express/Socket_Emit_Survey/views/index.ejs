@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <link rel="stylesheet" href="http://localhost:8000/style.css" type="text/css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+      <script type ="text/javascript">
+         $(document).ready(function (){
+              var socket = io.connect();
+
+              $('button').click(function (){
+                let name = $('#name').val()
+                let dojo = $('#dojo :selected').text()
+                let language = $('#lang :selected').text()
+                let comment = $('textarea#text').val()
+               // gets my values of my input data
+                  socket.emit("button_clicked", {name:'Name: '+name+' , Dojo: '+dojo+ ' , Language: '+language+' , Comment: '+comment});
+                  var form = $('#user')[0];
+                  form.reset()
+                  //this emits the data to the server and is captured by "button_clicked"
+              });
+                 socket.on('server_response', function (data){
+                     console.log('The server says: ' + data.response);
+                      $('.server').html('<div id="show_data"><h5>'+data.response+'</h5></div>')
+                 });
+                 socket.on('random_number', function(data){
+                  $('.server').append('<h5>'+data.number+'</h5>')
+                })
+                //captures the emit from the server as "server_response, and "random number..
+         })
+      </script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div id = "body">
+               <div class="server">
+               </div>
+               <form id= "user" action="/users" method="post">
+                  <label for="name">Your Name: </label>
+                  <input id= "name" type="test" name="name" value="">
+                  <br>
+                  <br>
+                  <label for="name">Dojo Location: </label>
+                  <select id="dojo" name="dojo">
+                     <option value="Chicago">Chicago</option>
+                     <option value="Seattle">Seattle</option>
+                     <option value="Los Angeles">Los Angeles</option>
+                  </select>
+                  <br>
+                  <br>
+                  <label for="name">Favorite Language: </label>
+                  <select id="lang" name="language">
+                     <option value="Python">Python</option>
+                     <option value="Ruby">Ruby</option>
+                     <option value="Java Script">Java Script</option>
+                  </select>
+                  <br>
+                  <br>
+                  <label for="">Comment(Optional): </label>
+                  <br>
+                  <textarea id ="text" name="text" rows="4" cols="30"></textarea>
+                  <br>
+                  <br>
+                  <!-- <input id = "submit" type="submit" name="submit" value="submit"> -->
+                  <button  id= "button" type="button" name="button">Submit</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

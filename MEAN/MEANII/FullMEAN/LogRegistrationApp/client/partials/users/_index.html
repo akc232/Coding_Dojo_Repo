@@ -1,0 +1,20 @@
+<section ng-init = 'getUsers()'>
+<div>
+   <table class = 'table'>
+      <thead>
+         <th>Name</th>
+         <th>Email</th>
+         <th>Password</th>
+      </thead>
+      <tbody >
+         <tr ng-repeat ='data in users'>
+            <td>{{data.username}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.password}}</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <a href="#!/">Go back</a>
+</div>
+</section>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Create New Branch</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   </head>
+   <body>
+      <div class="container">
+         <br>
+         <div class="links">
+            <a href="/dojo">Home</a>
+         </div><br>
+         <div class="title">
+            <h3>Add a Student</h3>
+         </div>
+         <form class="" action="/student/<%=@student.id%>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+            <input type="hidden" name="_method" value="patch">
+            <label for="">First Name:</label><input type="text" name="first" value="<%=@student.first_name %>"><br><br>
+            <label for="">Last Name:</label><input type="text" name="last" value="<%=@student.last_name %>"><br><br>
+            <label for="">Email:</label><input type="text" name="email" value="<%=@student.email %>"><br><br>
+            <label for="">Branch:</label><select name="dojo">
+               <%@dojos.each do |d|%>
+                  <%if d.id == @dojo.id%>
+
+                  <option selected value="<%=@dojo.id%>"><%=@dojo.branch%></option>
+                  <%else%>
+                  <option value="<%=d.id%>"><%=d.branch%></option>
+                  <%end%>
+               <%end%>
+            </select><br><br>
+            <input type="submit" name="" value="Update Student">
+         </form>
+      </div>
+   </body>
+</html>

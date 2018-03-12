@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>User add(Group Chat)</title>
+      <link rel="stylesheet" href="http://localhost:8000/CSS/style.css" type="text/css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+      <script type ="text/javascript" src="http://localhost:8000/JS/script.js">
+      </script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <h3><u>Conversation Board</u></h3>
+            </div>
+         </div>
+         <div class="row">
+            <div id="chat"></div>
+            <div class="row">
+               <div class="col-md-10">
+                  <form id="message_box">
+                     <input id= "message" type="text" name="" value="">
+                     <button id= "add" type="submit" name="button">Send</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

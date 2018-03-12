@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app = 'logRegApp'>
+   <head>
+      <meta charset="utf-8">
+      <title>Main Index Page</title>
+      <script src='angular/angular.js'></script>
+      <script src='angular-route/angular-route.js'></script>
+      <script src='angular-cookies/angular-cookies.js'></script>
+      <script src= 'app/app.js'></script>
+      <script src= 'app/services/usersService.js'></script>
+      <script src= 'app/factories/usersFactory.js'></script>
+      <script src= 'app/controllers/loginController.js'></script>
+      <script src= 'app/controllers/registerController.js'></script>
+      <script src= 'app/controllers/usersController.js'></script>
+      <script src= 'app/controllers/logRegController.js'></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   </head>
+   <body>
+      <div ng-hide = 'true'>
+         <p>Angular is not working</p>
+      </div>
+      <div class="container">
+         <div class="title">
+            <h3>Login and Registration Wire Frame</h3>
+         </div>
+         <div ng-view></div>
+      </div>
+   </body>
+</html>

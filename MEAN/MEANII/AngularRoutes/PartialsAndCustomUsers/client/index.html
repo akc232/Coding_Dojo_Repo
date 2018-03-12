@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app = 'userApp'>
+   <head>
+      <meta charset="utf-8">
+      <title>Partials and Custom Users</title>
+      <script src ="angular/angular.js"></script>
+      <script src ="angular-route/angular-route.js"></script>
+      <script src="static/css/style.css"></script>
+      <script src="main.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   </head>
+   <body>
+      <div class="container">
+         <h5>Welcome to the (Angular Partial) Users Wire Frame</h5>
+            <a href="#!/users">Users List</a>
+            <a href="#!/customize">Customize a User</a><br><br>
+            <div ng-view>
+               <!-- partials load here  -->
+            </div>
+      </div>
+   </body>
+</html>

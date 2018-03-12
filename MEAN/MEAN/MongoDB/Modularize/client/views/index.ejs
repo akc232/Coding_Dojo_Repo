@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Cats</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class="row" style="padding:60px">
+         <div class="text-center">
+            <h2>Hello. Welcome to Cats</h2>
+            <hr>
+            <a href="/cats/new"><button>Add New Cat</button></a><br>
+            <h4>Here are all the cats.</h4>
+            <br>
+            <!-- show all cats here with the ability to edit, delete, and show selected cats info. -->
+            <hr>
+         </div>
+         <table class="table table-striped table-bordered">
+            <thead>
+               <th>Name:</th>
+               <th>Weight:</th>
+               <th>Color:</th>
+            </thead>
+            <% for(var i in cats){ %>
+            <tr>
+               <td><a href="/cats/<%=cats[i]._id%>"><%=cats[i].name%></a></td>
+               <td><%= cats[i].weight %></td>
+               <td><%= cats[i].color %></td>
+            </tr>
+         <% } %>
+      </table>
+      </div>
+   </body>
+</html>

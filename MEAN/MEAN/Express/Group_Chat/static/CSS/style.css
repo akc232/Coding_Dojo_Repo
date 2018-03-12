@@ -1,0 +1,19 @@
+#add_user{
+   border:2px solid black;
+}
+
+.container{
+   padding:50px;
+
+}
+#chat{
+border:2px solid black;
+height:300px;
+width:400px;
+overflow:auto;
+}
+
+#message{
+   height:60px;
+   width: 300px;
+}

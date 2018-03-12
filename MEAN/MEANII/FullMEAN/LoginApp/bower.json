@@ -1,0 +1,22 @@
+{
+  "name": "LoginApp",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Andrew Chang <achang232@comcast.net>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/CodingDojo-MEAN-04-17/Andrew_Chang",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "angular-cookies": "^1.6.4"
+  }
+}

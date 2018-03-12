@@ -1,0 +1,17 @@
+<div ng-controller= 'playerController'>
+   <form >
+      <label for="">Name: </label>
+      <input type="text" name="" value="" ng-model="player.name">
+      <input type="submit" ng-click="addPlayer()" value="Add Player">
+   </form><br>
+   <table class = 'table table-bordered'>
+      <thead>
+         <th>Name</th>
+         <th>Action</th>
+      </thead>
+      <tbody ng-repeat='player in players'>
+         <td>{{player.name}}</td>
+         <td><button type="button" name="button" ng-click='deletePlayer(player)'>Remove Player</button></td>
+      </tbody>
+   </table>
+</div>

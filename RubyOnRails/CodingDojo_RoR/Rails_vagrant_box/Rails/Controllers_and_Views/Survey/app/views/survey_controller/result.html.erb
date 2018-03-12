@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Submitted Form</title>
+   </head>
+   <body>
+      <div class="container">
+         <% if flash[:success] %>
+         <div class="flash">
+            <%= flash[:success] %>
+         </div>
+         <%end%>
+      </div>
+      <div class="form">
+         <h5><u>Submitted Form</u></h5><br>
+         <label for=""><u><b>Name:</b></u></label><p><%= @result['name']%></p>
+         <label for=""><u><b>Dojo Location:</b></u></label><p><%= @result['location']%></p>
+         <label for=""><u><b>Favorite Language:</b></u></label><p><%= @result['language']%></p>
+         <label for=""><u><b>Comment:</b></u></label><p><%= @result['comment']%></p>
+      </div>
+      <a href="/"><button type="button" name="button">Go back</button></a>
+
+   </body>
+</html>

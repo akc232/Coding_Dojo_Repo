@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Timer</title>
+   </head>
+   <body>
+      <h2>Click Button to Start Timer!!! :D</h2>
+      <div id='timer'>
+
+      </div>
+   </body>
+   <script type="text/javascript">
+
+   var game = document.getElementById('timer');
+   var begin = '<button type="button" name="button" onclick="startTimer()"> Start Timer!</button>';
+   var mash = '<input id="mash" type="button" value="Ma$h M3!!" onclick="mashMe()">';
+   var reset = 'You mashed me!!!!'+'<input type="button" name="reset" value="Reset" onclick="resetMe()">';
+
+   count=0;
+   var timer = 0
+   var startSeconds = 0;
+   var endSeconds = 0;
+   var timePassed = 0;
+
+   game.innerHTML= begin;
+
+   function startTimer(){
+      console.log("start");
+      timer = Math.ceil(Math.random()*22);
+      console.log(timer);
+      var s = new Date();
+      startSeconds += s.getSeconds()
+      game.innerHTML = mash;
+
+   }
+   function mashMe(){
+
+      console.log(startSeconds);
+      if (count < timer){
+         count+=1;
+         console.log(count);
+      }
+
+      if (count == timer) {
+         var s = new Date();
+         endSeconds += s.getSeconds()
+         timePassed += (endSeconds-startSeconds)
+         console.log(timePassed, "time passed");
+         game.innerHTML = 'You mashed me '+ count+ ' times in'+timePassed+' seconds!!!!'+'<input type="button" name="reset" value="Reset" onclick="resetMe()">';;
+      }
+   }
+   function resetMe(){
+      startSeconds = 0;
+      endSeconds = 0;
+      timePassed = 0;
+      location.reload()
+   }
+
+   </script>
+</html>

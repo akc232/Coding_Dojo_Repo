@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app=userApp>
+   <head>
+      <meta charset="utf-8">
+      <title>User Controller</title>
+      <script src='bower_components/angular/angular.js'></script>
+      <script type="text/javascript">
+         const userModule = angular.module('userApp', []);
+
+         userModule.controller('usersController', function($scope){
+            $scope.users=[
+               {first: 'Andrew', last:'Chang', language:'Python'},
+               {first: 'Joe', last:'Dirt', language:'Python'},
+               {first: 'Jane', last:'Doe', language:'Java Script'},
+               {first: 'Jeff', last:'Jones', language:'PHP'},
+            ];
+            $scope.addUser = function(){
+               $scope.users.push($scope.newUser)
+               $scope.newUser = {};
+            }
+            $scope.removeUser = function(user){
+               console.log(user);
+               const person = $scope.users.indexOf(user);
+               $scope.users.splice(person,1);
+            }
+         })
+      </script>
+   </head>
+   <body>
+      <div ng-controller="usersController" >
+         <h3>Add a User</h3>
+         <form>
+            <label for=""> First Name:</label><input type="text" name="first" ng-model="newUser.first"><br>
+            <label for=""> Last Name:</label><input type="text" name="last" ng-model="newUser.last"><br>
+            <label for=""> Favorite Language:</label><input type="text" name="language" ng-model="newUser.language"><br><br>
+            <input type="submit" value="Add User" ng-click="addUser()">
+         </form><br><br>
+         <label for="">Search:(Can not combine)</label><input type="text" ng-model="searchUser"><br>
+         <br>
+         <table>
+            <thead>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Language</th>
+               <th>Actions</th>
+            </thead>
+            <tbody ng-repeat="user in users | filter:searchUser">
+               <td>{{ user.first }}</td>
+               <td>{{ user.last }}</td>
+               <td>{{ user.language }}</td>
+               <td><button type="button" name="button" ng-click="removeUser(user)">Delete User</button></td>
+            </tbody>
+         </table>
+      </div>
+
+   </body>
+</html>

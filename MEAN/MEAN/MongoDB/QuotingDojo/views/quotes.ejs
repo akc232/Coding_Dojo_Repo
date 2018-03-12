@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Quotes</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class="row">
+         <div class="text-center">
+            <h2>Quotes from Everyone!!</h2>
+            <hr>
+            <% for(var i in data){ %>
+               <h5>Name: <%= data[i].name %></h5>
+               <p>Quote: <%= data[i].quote %></p>
+               <br>
+            <% } %>
+            <button type="button" name="button"><a href="/">Home</a></button>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Cats</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class="row">
+         <div class="text-center">
+            <br>
+            <h2>This is <%=cats[0].name%></h2>
+            <hr>
+            <br>
+            <h4>Stats:</h4>
+            <h5> Weight: <%=cats[0].weight%></h5>
+            <h5> Color: <%=cats[0].color%></h5><br>
+            <!-- show specific cat here... -->
+            <a href="/"><button type="button" name="button">Home</button></a><br>
+            <a href="/cats/<%=cats[0]._id%>/edit"><button type="button" name="button">Edit <%=cats[0].name%> </button></a>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,7 @@
+<div ng-init = "getFriend()">
+   <label for="">First Name: </label> <h5>{{friend.first}}</h5>
+   <label for="">Last Name: </label> <h5>{{friend.last}}</h5>
+   <label for="">Birthday: </label><h5>{{friend.birthday | date:'MM/dd/yyyy'}}</h5>
+   <label for="">User Added: </label><h5>{{friend.created | date: 'MM/dd/yyyy @ h:mma'}}</h5><br><br>
+   <a href="#!/friends/">Home</a>
+</div>

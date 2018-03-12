@@ -1,0 +1,24 @@
+<body ng-controller = 'loginController'>
+  <form ng-model = "registration" ng-submit = "register()">
+    {{errors.first_name.message}}
+    <label for="">First: </label><input type="text" ng-model = "registration.first_name" placeholder= "first name"><br>
+    {{errors.last_name.message}}
+    <label for="">Last: </label><input type="text"  ng-model = "registration.last_name" placeholder= "last name"><br>
+    {{errors.email.message}}
+    <label for="">Email: </label><input type="email"  ng-model = "registration.email" placeholder= "email"><br>
+    {{errors.password.message}}
+    <label for=""></label>Password: <input type="password"  ng-model = "registration.password" placeholder= "password"><br>
+    <label for=""></label>Confirm Password: <input type="password" ng-model = "registration.confirm_password" placeholder= "confirm password"><br>
+    {{errors.birthday.message}}
+    <label for="">Birthday: </label><input type="date" ng-model = "registration.birthday"><br>
+    <input type="submit" value = "register">
+  </form>
+</br><hr><br>
+  <form ng-model = "userLogin" ng-submit = "login()">
+    {{errors.login_reg.message}}
+   <label for="">Email: </label> <input type="email"  ng-model = "userLogin.email" placeholder= "email"><br>
+    <label for="">Password: </label><input type="password"  ng-model = "userLogin.password" placeholder= "password"><br>
+
+    <input type="submit" value = "login"><br>
+  </form>
+  </div>

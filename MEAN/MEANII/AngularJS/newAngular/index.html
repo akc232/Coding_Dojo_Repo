@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app = 'app'>
+   <head>
+      <meta charset="utf-8">
+      <title>First Angular Page</title>
+      <script src='bower_components/angular/angular.js'></script>
+      <script src="script.js"></script>
+      <style media="screen">
+         span{
+            color:red;
+         }
+      </style>
+   </head>
+   <body>
+      <div ng-controller="divController">
+         <h1>Welcome to my first Angular JS Page.</h1>
+         <br><hr>
+         <h4>Created by: <span>{{ myName }}</span></h4>
+         <p>Hello, my name is <span>{{ myName }}</span>.<br><br> My favorite coding languages are; <span>{{ myFavoriteLanguage }}</span>.<br><br> Also my favorite JS library is <span>{{ myFavoriteJSLibrary }}</span>, be cause <span>{{myFavoriteJSLibrary}}</span> is awesome!</p>
+         <p>Everything in RED is all rendered by <span>{{ myFavoriteJSLibrary }}</span>!!</p>
+      </div>
+   </body>
+</html>

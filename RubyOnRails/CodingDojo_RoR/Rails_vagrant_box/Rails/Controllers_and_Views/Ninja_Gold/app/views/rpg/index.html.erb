@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Ninja Gold Ruby on Rails!</title>
+      <style>
+      .container{
+         width:1200px;
+         margin:0px;
+         padding: 20px;
+      }
+      .farm, .cave, .house, .casino{
+         width:225;
+         height: 225;
+         padding: 5px;
+         border: 1px solid black;
+         display:inline-block;
+         text-align: center;
+         margin: 20px;
+
+      }
+      .main{
+         display: inline-block;
+         width: 1200px;
+         padding: 5px;
+      }
+      .title{
+         text-align: center;
+      }
+      .activity_box{
+         height: 300px;3
+         border: 1px solid black;
+         overflow-y: auto;
+      }
+      .earned{
+         color: green;
+      }
+      .loss{
+         color: red;
+      }
+      </style>
+
+   </head>
+   <body>
+      <div class="container">
+         <div class="title">
+            <h3>Ruby Ninja Gold Game!</h3>
+         </div>
+         <div class="score">
+            <h5>Your Gold: <%=@gold%> </h5>
+         </div>
+         <div class="new">
+            <form action="new" method="post">
+               <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">​
+               <input type="submit" name="" value="Reset">
+            </form>
+         </div>
+         <div class="main">
+            <div class="farm">
+               <form action="/process" method="post">
+                  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">​
+                  <input type="hidden" name="building" value="farm">
+                  <h5><b>Farm</b></h5>
+                  <p>(earns 10-20 gold)</p>
+                  <input type="submit" value="Find Gold!">
+               </form>
+            </div>
+            <div class="cave">
+               <form action="/process" method="post">
+                  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">​
+                  <input type="hidden" name="building" value="cave">
+                  <h5><b>Cave</b></h5>
+                  <p>(earns 5-10 gold)</p>
+                  <input type="submit" value="Find Gold!">
+               </form>
+            </div>
+            <div class="house">
+               <form  action="/process" method="post">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+                  <input type="hidden" name="building" value="house">
+                  <h5><b>House</b></h5>
+                  <p>(earns 2-5 gold)</p>
+                  <input type="submit" name="" value="Find Gold!">
+               </form>
+            </div>
+            <div class="casino">
+               <form  action="/process" method="post">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+                  <input type="hidden" name="building" value="casino">
+                  <h5><b>Casino</b></h5>
+                  <p>(earns/ loses up to 50 gold)</p>
+                  <input type="submit" name="" value="Find Gold!">
+               </form>
+            </div>
+         </div><br><br>
+         <div class="activity">
+            <h5>Activities:</h5><br>
+
+            <p><%@activity%></p>
+               <div class="activity_box">
+               <% @activity.reverse.each do |a| %>
+                  <% if a.include?("Earned")%>
+                     <p class='earned'><%= a %></p>
+                  <% else %>
+                     <p class='loss'><%= a %></p>
+                  <%end%>
+               <%end%>
+               </div>
+         </div>
+      </div>
+   </body>
+</html>

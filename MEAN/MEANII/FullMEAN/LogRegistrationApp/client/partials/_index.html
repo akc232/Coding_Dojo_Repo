@@ -1,0 +1,29 @@
+<div class="">
+  <section ng-controller = 'logRegController'>
+     <div ng-if='messages'>
+        <ul ng-repeat= 'message in messages'>
+           <li style='color:red;' ng-bind='message'></li>
+        </ul>
+     </div>
+    <form ng-submit='login(user)' >
+      <label for="">User Name: </label><input type="text" ng-model = "user.username"><br>
+      <label for="">Password: </label><input type="password" ng-model = "user.password"><br>
+      <button type="submit" name="button">Login</button>
+    </form>
+  </section>
+  <br><hr><br>
+  <section ng-controller = 'logRegController'>
+     <div ng-if='regMessages'>
+        <ul ng-repeat='message in regMessages'>
+           <li style='color:red' ng-bind='message'></li>
+        </ul>
+     </div>
+    <form ng-submit='register(user)' >
+      <label for="">User Name: </label><input type="text"  ng-model = "user.username"><br>
+      <label for="">E-mail</label><input type="email"   ng-model = "user.email"><br>
+      <label for="">Password: </label><input type="password"   ng-model = "user.password"><br>
+      <label for="">Confirm Password</label><input type="password"   ng-model = "user.confirmPassword"><br>
+      <button type="submit" name="button">Register</button>
+    </form>
+  </section>
+</div>

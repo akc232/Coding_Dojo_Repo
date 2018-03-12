@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Wish Items</title>
+      {% load staticfiles %}
+      <link rel="stylesheet" href="{% static 'wishapp/css/bootstrap.css' %}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="title row">
+            <div class="col-md-10">
+               <h2><u>Hello {{request.session.name}}</u></h2>
+            </div>
+            <div class="col-md-2">
+               <a href="{% url 'login:logout' %}">Logout</a>
+            </div>
+         </div>
+         <div class="mywish row" >
+            <div class="col-md-7">
+               <table class='table-striped table-bordered'>
+                  <h5>Your Wish List: </h5>
+                  <thead>
+                     <th>Item</th>
+                     <th>Added By</th>
+                     <th>Date</th>
+                     <th>Action</th>
+                  </thead>
+                  {% for item in myitems %}
+                  <tr>
+                     <td><a href="{% url 'wish:item' item.id %}">{{item.item}}</a></td>
+                     {% for user in item.user.all|slice:":1" %}
+                     <td> {{user.first_name}}</td>
+                     {% endfor %}
+                     <td>{{item.created_at|date:"F d,Y"}}</td>
+                     <td>
+                        <a href="#">Remove from Wishlist</a> |
+                        <a href="#">Delete</a>
+                     </td>
+                  </tr>
+                  {% endfor %}
+
+
+               </table>
+
+            </div>
+         </div>
+         <div class="otherwish row">
+            <div class="col-md-7">
+               <table class='table-striped table-bordered'>
+                  <h5>Other Users Wish List: </h5>
+                  <thead>
+                     <th>Item</th>
+                     <th>Added By</th>
+                     <th>Date</th>
+                     <th>Action</th>
+                  </thead>
+                  {% for item in items %}
+                  <tr>
+                     <td><a href="{% url 'wish:item' item.id %}">{{item.item}}</a></td>
+                     {% for user in item.user.all %}
+                     <td> {{user.first_name}}</td>
+                     {% endfor %}
+                     <td>{{item.created_at|date:"F d,Y"}}</td>
+                     <td>
+                        <form class="" action="{% url 'wish:add_list' %}" method="post">
+                           {% csrf_token %}
+                           <input type="hidden" name="id" value="{{item.id}}">
+                           <input type="hidden" name="user" value="{{request.session.id}}">
+                           <button type="submit" name="submit"><a>Add Item</a></button>|
+                        </form>
+                        <a href="#">Delete</a>
+                     </td>
+                  </tr>
+                  {% endfor %}
+               </table>
+            </div>
+         </div>
+         <div class="add row">
+            <div class="col-md-2 pull-md-10">
+               <a href="{% url 'wish:show_create' %}">Add Item</a>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
