@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Main Page</title>
+      {% load staticfiles %}
+      <link rel="stylesheet" href="{% static 'beltapp/css/bootstrap.css' %}">
+   </head>
+   <body>
+      <div class="contianer" style="padding:20px;">
+         <div class="row">
+            <div class="col-md-10">
+               <h2>Hello {{request.session.name}}</h2>
+
+            </div>
+            <div class="col-md-2">
+               <a href="{% url 'belt:index' %}">Home</a>
+               <a href="{% url 'login:index' %}">Logout</a>
+            </div>
+         </div>
+         <hr>
+         <div class="row">
+            <div class="col-md-12">
+               BODY GOES HERE!!!!!!!!
+
+            </div>
+         </div>
+
+      </div>
+   </body>
+</html>

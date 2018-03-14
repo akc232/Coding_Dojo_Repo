@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Main Page</title>
+      {% load staticfiles %}
+      <link rel="stylesheet" href="{% static 'beltapp/css/bootstrap.css' %}">
+   </head>
+   <body>
+      <div class="contianer" style="padding:20px;">
+         <div class="row">
+            <div class="col-md-10">
+               <h2>Hello {{request.session.name}}</h2>
+               <p>place amount of people who poked you here</p>
+
+            </div>
+            <div class="col-md-2">
+               <a href="{% url 'login:index' %}">Logout</a>
+            </div>
+         </div>
+         <hr>
+         <div class="row">
+            <div class="col-md-4" style="border:1px solid black; height:150px;">
+
+
+
+            </div>
+         </div>
+         <br>
+         <br>
+         <div class="row">
+            <div class="col-md-10" style="padding: 5px;">
+               <h5>People you may want to poke:</h5>
+               <table>
+                  <thead style="padding: 10px;">
+                     <th>Name</th>
+                     <th>Alias</th>
+                     <th>Email Address</th>
+                     <th>Poke History</th>
+                     <th>Action</th>
+                  </thead>
+                     {% for user in users %}
+                  <tr>
+                     <td>{{user.first_name}} {{user.last_name}}</td>
+                     <td>{{user.first_name}}</td>
+                     <td>{{user.email}}</td>
+
+                     <td></td>
+                     <td>
+                        <form class="" action="{% url 'belt:create' %}" method="post">
+                           {% csrf_token %}
+                           <input type="hidden" name="id" value="{{user.id}}">
+                           <input type="hidden" name="poke" value="{{request.session.id}}">
+                           <button type="submit" name="submit">Poke</button>
+                        </form>
+                     </td>
+                     {% endfor %}
+
+
+                  </tr>
+
+               </table>
+
+            </div>
+         </div>
+
+      </div>
+   </body>
+</html>
