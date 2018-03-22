@@ -1,0 +1,11 @@
+.main{
+   width: 1000;
+   height: 600;
+   border: 1px dotted black;
+   padding: 50px;
+   margin-left: 100px;
+   margin-right: 100px;
+}
+.survey{
+   margin-left: 20px;
+}
